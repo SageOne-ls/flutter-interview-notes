@@ -368,6 +368,86 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
   - **改进空间**：存在 `core` 反向依赖 `ui/v1` 的耦合（例如 core utils 里 toast/导航），更理想是让 **core 只依赖抽象接口**，UI 提供实现并在 DI 注入，避免 `core↔ui` 双向依赖。
 - **关键词**：`模块边界` `目录分层` `barrel export` `go_router` `get_it` `core/ui 解耦` `依赖方向` `env/flavor`
 
+### 7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）
+
+- **一句话结论**：Dart 的异步由 **事件循环**调度（microtask queue 优先于 event queue）；Flutter 在此之上用 **SchedulerBinding** 把 UI 更新组织成“帧”，并在每帧内按固定阶段驱动渲染流水线（layout/paint/composite/semantics），最后执行 post-frame 回调。
+- **要点**：
+  - **Dart microtask 优先**：`scheduleMicrotask` 注册的回调会在其它异步事件（如 Timer）之前执行；microtask 用多了可能饿死 event queue（官方警告）。  
+    参考：`scheduleMicrotask`（Dart API）`https://api.dart.dev/stable/dart-async/scheduleMicrotask.html`
+  - **帧回调分类（SchedulerBinding）**：官方将帧内回调分为 transient / persistent / post-frame，并解释它们与 `onBeginFrame/onDrawFrame` 的关系。  
+    参考：`SchedulerBinding`（Flutter API）`https://docs.flutter.dev/flutter/scheduler/SchedulerBinding-mixin.html`
+  - **addPostFrameCallback 的语义**：回调在一帧结束后、渲染流水线 flush 之后执行；不主动请求新帧；只执行一次且不可取消。  
+    参考：`addPostFrameCallback`（Flutter API）`https://api.flutter.dev/flutter/scheduler/SchedulerBinding/addPostFrameCallback.html`
+  - **渲染流水线阶段（drawFrame）**：官方列出每帧包含 layout、compositing bits、paint、compositing、semantics、finalization 等阶段。  
+    参考：`RendererBinding.drawFrame`（Flutter API）`https://api.flutter.dev/flutter/rendering/RendererBinding/drawFrame.html`
+- **常见追问**：
+  - **为什么要用 `addPostFrameCallback`**：拿尺寸/做滚动/依赖布局结果时，保证本帧渲染完成后再执行。
+  - **`Future`/`async` 等于多线程吗**：不等；它们仍在同一 isolate 的事件循环上，真正并行靠 Isolate。
+- **更新时间**：2026-04
+- **关键词**：`event loop` `microtask` `SchedulerBinding` `drawFrame` `addPostFrameCallback`
+
+### 7.9 `RepaintBoundary` 原理是什么？面试怎么讲
+
+- **一句话结论**：`RepaintBoundary` 会在渲染树中插入一个 **compositing boundary（合成边界）**，把子树提升为**独立的 layer**；当子树发生重绘时，重绘会尽量**局部化**在该 layer 内，避免整片 UI 跟着 repaint。
+- **它解决的问题**：
+  - Flutter 的绘制是从 `RenderObject` 生成 layer tree；当某个节点 `markNeedsPaint`，重绘可能向上影响更大范围。
+  - `RepaintBoundary` 把一块 UI 的“绘制影响范围”切开，**减少 repaint 的扩散**（尤其是动画/频繁变化区域叠在大静态背景之上时）。
+- **原理要点（抓住 3 句话）**：
+  - `RepaintBoundary` 对应 `RenderRepaintBoundary`，会让该节点成为 **layer 的边界**（独立 `Layer`，通常是 `OffsetLayer` 一类），框架在 `paint` 阶段会以它为单位生成/复用 layer。
+  - 子树发生 repaint 时，理想情况下只需要更新该边界内的 layer（以及必要的合成），**不用让父节点整块重新 paint**。
+  - 它优化的是 **paint/compositing** 成本，不直接优化 **build/layout**（build 还是会跑，layout dirty 也一样会向上影响）。
+- **什么时候用（高频面试场景）**：
+  - **高频动画/倒计时/进度条** 覆盖在复杂静态背景上：把高频区域包进 `RepaintBoundary`。
+  - **列表复杂 item** 中只有局部在动：给局部动的子树加边界，避免整行/整屏 repaint。
+- **副作用与误区（加分点）**：
+  - **不是越多越好**：layer 变多会增加合成开销与内存占用；某些场景还可能影响 GPU 合成。
+  - **它不等于“减少 rebuild”**：要减少 rebuild 用 `const`、拆 widget、`Selector/BlocSelector` 等；`RepaintBoundary` 主要管 paint。
+  - 是否收益要用工具验证：看 DevTools 的 repaint 统计/性能时间线（以数据为准）。
+- **更新时间**：2026-04
+- **关键词**：`RepaintBoundary` `RenderRepaintBoundary` `layer tree` `paint` `compositing boundary`
+
+### 7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）
+
+- **一句话结论**：Flutter 性能优化不要“凭感觉改”，核心是围绕 **FPS/Jank 的根因（CPU 过载 vs GPU 过载）** 做定位：先用 DevTools/Timeline 找到掉帧发生在哪一帧、是哪段耗时（build/layout/paint 或业务方法），再用“减少工作量/缩小影响范围/拆帧与并行”三板斧去改。
+- **先讲指标与根因（面试开场）**：
+  - **Jank 两大类原因**（项目文档结论）：
+    - **CPU**：UI 绘制前的任务太重（同步计算、JSON/格式化、埋点、复杂初始化等）
+    - **GPU**：页面过于复杂/层级深，渲染耗时或触发不必要的 repaint
+- **定位步骤（你做过什么）**：
+  - **看帧耗时**：在 DevTools Performance/Timeline 里找掉帧帧，确认是 build/layout/paint 哪块超预算。
+  - **看页面初始化**：例如文档以某页面为例，`initState` 曾占用单帧约 36%（\(6.1/16.67ms\)），优化后关注第二帧是否仍丢帧，并继续找“方法耗时”。
+- **CPU 侧优化（减少主线程工作量）**：
+  - **延迟非必要工作**：埋点/日志等可延迟到首帧后几帧执行（`addPostFrameCallback`/延时），或放到后台任务队列顺序执行（避免首帧拥塞）。
+  - **Isolate/compute**：CPU 密集型（如 JSON → Model、大量计算）放到 isolate/`compute`。
+  - **格式化/解析选择**：金额格式化用 `intl/NumberFormat`（避免自写低效逻辑）。
+- **GPU/渲染侧优化（减少 paint/compositing 压力）**：
+  - **降低页面复杂度与嵌套**：减少重型 widget、避免无意义层级。
+  - **必要时用 `RepaintBoundary`**：把高频变化区域与大静态背景隔离，减少 repaint 扩散（见 7.9）。
+- **减少 build 次数 / 缩小刷新范围（项目文档重点）**：
+  - **`build()` 保持 Clean**：build 可能被多次调用，不能有不可预期副作用。
+  - **避免大范围 `setState`**：把需要刷新的小块抽成更小的 `StatefulWidget`，缩小重建范围。
+  - **可变组件下沉到叶子节点**：让上层尽量稳定，只让最小子树变化。
+  - **优先 `const`**：不变的 widget 用 `const`，减少重建成本。
+- **动画与重建（隔离可变/不可变）**：
+  - 动画场景要把“不会变的外壳”（如 `GestureDetector` 等）与“会变的内容”拆开。
+  - 内容类型一致但数据变动时，合理使用 `ValueKey`；也可考虑 `AnimatedSwitcher`/`PageView`/`ListView.builder` + 定时器实现轮播，并缓存可复用子 widget。
+- **函数 Widget vs StatelessWidget（项目文档结论）**：
+  - 用函数返回 widget 容易**错过框架复用优化**，也不利于隔离可变/不可变区域。
+  - 抽成 `StatelessWidget`（或更小 widget）提升复用、可读性，并可与状态管理配合更清晰。
+- **图片内存专项（项目文档给了量化结果）**：
+  - 使用 `cacheWidth/cacheHeight` 按目标显示尺寸解码缩放，能显著降低内存占用（文档示例：图片内存从约 36MB 降到约 6MB，降幅 ~80%；App 总内存也有下降）。
+  - 关注磁盘缓存策略：只缓存原图仍需 decode；可评估缓存“目标尺寸图”的策略（按业务取舍）。
+- **状态管理（UI = f(state)）**：
+  - 页面要有清晰的数据流（单向数据流），共享状态上提；复杂页面刷新控制在最小范围内（Selector/拆 widget）。
+- **其它稳定性/性能习惯（查漏补缺清单）**：
+  - 生命周期里及时释放：Stream/Controller/监听在 `dispose` 里关闭。
+  - `mounted` 判断：异步回调更新 UI 前先判断 `mounted`。
+  - 大对象及时清理：页面关闭时可手动清空大 List/Map。
+  - 资源压缩：安装包内图片资源压缩后再用。
+  - 开启静态检查：启用 `flutter_lints` 规范化。
+- **更新时间**：2026-04
+- **关键词**：`DevTools` `FPS` `Jank` `build clean` `setState scope` `const` `RepaintBoundary` `cacheWidth` `cacheHeight` `Isolate` `compute`
+
 ---
 
 ## 8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）
