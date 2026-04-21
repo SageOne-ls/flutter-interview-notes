@@ -1,0 +1,20 @@
+site_name: Flutter 面试题笔记
+site_url: https://sageone-ls.github.io/flutter-interview-notes/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+
+nav:
+  - 首页: index.md
+  - 面试题汇总: Flutter面试题汇总.md
+
