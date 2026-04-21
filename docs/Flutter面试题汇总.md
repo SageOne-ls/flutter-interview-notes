@@ -315,6 +315,19 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 
 这部分用于沉淀「每次面试前/面试中临时问到的点」，主打**短、准、可复习**。
 
+### 7.x 快速跳转
+
+- [7.1 Cubit 是怎么实现数据驱动刷新的？](#71-cubit-是怎么实现数据驱动刷新的)
+- [7.2 用 Cubit 就必须写 `setState` 吗？能全用 `StatelessWidget` 吗？](#72-用-cubit-就必须写-setstate-吗能全用-statelesswidget-吗)
+- [7.3 所有状态管理触发刷新，都会走 `setState` 这条线吗？](#73-所有状态管理触发刷新都会走-setstate-这条线吗)
+- [7.4 BuildContext 是什么？](#74-buildcontext-是什么)
+- [7.5 `context.dependOnInheritedWidgetOfExactType<T>()` 会有性能问题吗？](#75-contextdependoninheritedwidgetofexacttypet-会有性能问题吗)
+- [7.6 `for` 循环里写 `setState` 会执行多次重绘吗？](#76-for-循环里写-setstate-会执行多次重绘吗)
+- [7.7 Flutter 项目模块化怎么理解？结合 `xbit-app-mobile-v2` 怎么讲](#77-flutter-项目模块化怎么理解结合-xbit-app-mobile-v2-怎么讲)
+- [7.8 Flutter/Dart 的事件循环与帧调度机制是什么？](#78-flutterdart-的事件循环与帧调度机制是什么参考官方描述)
+- [7.9 `RepaintBoundary` 原理是什么？](#79-repaintboundary-原理是什么面试怎么讲)
+- [7.10 Flutter 怎么做性能优化？](#710-flutter-怎么做性能优化结合项目app性能分析查漏补缺)
+
 ### 7.1 Cubit 是怎么实现数据驱动刷新的？
 
 - **核心链路**：`emit(newState)` → 状态流（`Stream<State>`）发出新状态 → `BlocBuilder/BlocSelector` 订阅到变化 → 触发自身重建并用最新 `state` 再次 build。
