@@ -7,14 +7,16 @@
 
 ## 目录
 
-1. [StatefulWidget 生命周期](#1-statefulwidget-生命周期)
+1. [StatefulWidget 生命周期](#1-statefulwidget)
 2. [InheritedWidget](#2-inheritedwidget)
-3. [Key 的类型与使用场景](#3-key-的类型与使用场景)
-4. [Isolate 与并发](#4-isolate-与并发)
-5. [手写题：随机方块不重叠（Flutter）](#5-手写题随机方块不重叠flutter)
-6. [Dart 语法与关键词扩展](#6-dart-语法与关键词扩展)
-7. [面试问答速记（Q&A）](#7-面试问答速记qa)
-8. [附录：同份笔试材料中的通用题目（非 Flutter 专向）](#8-附录同份笔试材料中的通用题目非-flutter-专向)
+3. [Key 的类型与使用场景](#3-key)
+4. [Isolate 与并发](#4-isolate)
+5. [手写题：随机方块不重叠（Flutter）](#5-flutter)
+6. [Dart 语法与关键词扩展](#6-dart)
+7. [面试问答速记（Q&A）](#7-qa)
+8. [附录：同份笔试材料中的通用题目（非 Flutter 专向）](#8-flutter)
+
+> **Pages 说明**：GitHub 网页里预览 Markdown 的标题锚点规则与 **MkDocs Material** 生成的 `id` 不一致；文内目录与 §7.x 跳转已按 **MkDocs 构建结果** 书写，才能在 GitHub Pages 正文里点击生效。
 
 ---
 
@@ -338,19 +340,20 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 
 ### 7.x 快速跳转
 
-- [7.1 Cubit 是怎么实现数据驱动刷新的？](#71-cubit-是怎么实现数据驱动刷新的)
-- [7.2 用 Cubit 就必须写 `setState` 吗？能全用 `StatelessWidget` 吗？](#72-用-cubit-就必须写-setstate-吗能全用-statelesswidget-吗)
-- [7.3 所有状态管理触发刷新，都会走 `setState` 这条线吗？](#73-所有状态管理触发刷新都会走-setstate-这条线吗)
-- [7.4 BuildContext 是什么？](#74-buildcontext-是什么)
-- [7.5 `context.dependOnInheritedWidgetOfExactType<T>()` 会有性能问题吗？](#75-contextdependoninheritedwidgetofexacttypet-会有性能问题吗)
-- [7.6 `for` 循环里写 `setState` 会执行多次重绘吗？](#76-for-循环里写-setstate-会执行多次重绘吗)
-- [7.7 Flutter 项目模块化怎么理解？结合 `xbit-app-mobile-v2` 怎么讲](#77-flutter-项目模块化怎么理解结合-xbit-app-mobile-v2-怎么讲)
-- [7.8 Flutter/Dart 的事件循环与帧调度机制是什么？](#78-flutterdart-的事件循环与帧调度机制是什么参考官方描述)
-- [7.9 `RepaintBoundary` 原理是什么？](#79-repaintboundary-原理是什么面试怎么讲)
-- [7.10 Flutter 怎么做性能优化？](#710-flutter-怎么做性能优化结合项目app性能分析查漏补缺)
-  - [7.10.1 `ListView.builder` 内部怎么优化列表？](#7101-listviewbuilder-内部怎么优化列表和列表卡顿是什么关系)
-- [7.11 `reassemble` 可以直接调用吗？](#711-reassemble-可以直接调用吗)
-- [7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？](#712-flutter-与原生交互platform-channel-有哪些还有哪些方式)
+- [7.1 Cubit 是怎么实现数据驱动刷新的？](#71-cubit)
+- [7.2 用 Cubit 就必须写 `setState` 吗？能全用 `StatelessWidget` 吗？](#72-cubit-setstate-statelesswidget)
+- [7.3 所有状态管理触发刷新，都会走 `setState` 这条线吗？](#73-setstate)
+- [7.4 BuildContext 是什么？](#74-buildcontext)
+- [7.5 `context.dependOnInheritedWidgetOfExactType<T>()` 会有性能问题吗？](#75-contextdependoninheritedwidgetofexacttypet)
+- [7.6 `for` 循环里写 `setState` 会执行多次重绘吗？](#76-for-setstate)
+- [7.7 Flutter 项目模块化怎么理解？结合 `xbit-app-mobile-v2` 怎么讲](#77-flutter-xbit-app-mobile-v2)
+- [7.8 Flutter/Dart 的事件循环与帧调度机制是什么？](#78-flutterdart)
+  - [7.8.1 一帧何时调度、与 `setState` / `build` 先后](#781-setstatebuild)
+- [7.9 `RepaintBoundary` 原理是什么？](#79-repaintboundary)
+- [7.10 Flutter 怎么做性能优化？](#710-flutter-app)
+  - [7.10.1 `ListView.builder` 内部怎么优化列表？](#7101-listviewbuilder)
+- [7.11 `reassemble` 可以直接调用吗？](#711-reassemble)
+- [7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？](#712-flutter-platform-channel)
 
 ### 7.1 Cubit 是怎么实现数据驱动刷新的？
 
