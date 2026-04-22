@@ -22,21 +22,23 @@
 
 ### 1.1 各阶段回调（按调用顺序理解）
 
-| 阶段 | 回调 | 要点 |
-|------|------|------|
-| 创建 State | `createState` | `StatefulWidget` 被使用时立刻执行，用于创建对应的 `State`。 |
-| 初始化 | `initState` | 给 `State` 成员赋初值；可发起异步请求，拿到数据后 **`setState`** 更新 UI。 |
-| 依赖变化 | `didChangeDependencies` | 当本 `State` 在 `build` 中依赖的 **`InheritedWidget`**（等）发生变化时会调用；主题、`Locale` 等变化也会走这里。 |
-| 构建 | `build` | 返回要渲染的子树；**会被多次调用**，只应做「描述 UI」的逻辑，避免副作用。 |
-| Debug | `reassemble` | **仅 debug**：热重载（hot reload）时会调用，可放调试辅助代码。 |
-| 父级重建 | `didUpdateWidget` | 框架用 `Widget.canUpdate` 比较同一位置新旧节点；若 **Key 与 runtimeType 都相同** 则 `canUpdate` 为 `true`，随后会调 `didUpdateWidget`，**之后一定会再 `build`**。 |
-| 暂时移出树 | `deactivate` | 从树上摘下时调用；若不再挂到别处，接下来会 `dispose`。 |
-| 销毁 | `dispose` | 永久移除，释放控制器、`Animation`、`Stream` 订阅等资源。 |
+
+| 阶段       | 回调                      | 要点                                                                                                                              |
+| -------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 创建 State | `createState`           | `StatefulWidget` 被使用时立刻执行，用于创建对应的 `State`。                                                                                      |
+| 初始化      | `initState`             | 给 `State` 成员赋初值；可发起异步请求，拿到数据后 `**setState`** 更新 UI。                                                                             |
+| 依赖变化     | `didChangeDependencies` | 当本 `State` 在 `build` 中依赖的 `**InheritedWidget**`（等）发生变化时会调用；主题、`Locale` 等变化也会走这里。                                                |
+| 构建       | `build`                 | 返回要渲染的子树；**会被多次调用**，只应做「描述 UI」的逻辑，避免副作用。                                                                                        |
+| Debug    | `reassemble`            | **仅 debug**：热重载（hot reload）时会调用，可放调试辅助代码。                                                                                       |
+| 父级重建     | `didUpdateWidget`       | 框架用 `Widget.canUpdate` 比较同一位置新旧节点；若 **Key 与 runtimeType 都相同** 则 `canUpdate` 为 `true`，随后会调 `didUpdateWidget`，**之后一定会再 `build`**。 |
+| 暂时移出树    | `deactivate`            | 从树上摘下时调用；若不再挂到别处，接下来会 `dispose`。                                                                                                |
+| 销毁       | `dispose`               | 永久移除，释放控制器、`Animation`、`Stream` 订阅等资源。                                                                                          |
+
 
 ### 1.2 一帧绘制后的回调：`addPostFrameCallback`
 
 - 在当前帧 **绘制完成后** 执行一次，**注册后不能取消**，且 **只回调一次**。
-- 定义在 **`SchedulerBinding`**；由于 `WidgetsBinding` **`mixin WidgetsBinding on SchedulerBinding`**，两种写法等价思路：
+- 定义在 `**SchedulerBinding`**；由于 `WidgetsBinding` `**mixin WidgetsBinding on SchedulerBinding**`，两种写法等价思路：
 
 ```dart
 SchedulerBinding.instance.addPostFrameCallback((_) {
@@ -62,7 +64,7 @@ WidgetsBinding.instance.addPostFrameCallback((_) {
 ### 2.1 是什么
 
 - `InheritedWidget` 是一种特殊的 `Widget`，在 **子树向下** 传递数据，**不必层层构造函数传参**。
-- 数据变化时，可 **`updateShouldNotify`** 决定是否通知依赖者，依赖方通过 `context.dependOnInheritedWidgetOfExactType<T>()` **注册依赖**，从而在数据变化时 **自动重建**。
+- 数据变化时，可 `**updateShouldNotify`** 决定是否通知依赖者，依赖方通过 `context.dependOnInheritedWidgetOfExactType<T>()` **注册依赖**，从而在数据变化时 **自动重建**。
 
 ### 2.2 最小示例（与笔记一致）
 
@@ -90,7 +92,7 @@ class MyData extends InheritedWidget {
 ### 2.3 面试常追问
 
 - **与 `Provider` / `Riverpod` 的关系**：状态管理库多在 `InheritedWidget`（或类似机制）之上封装 **更新粒度、依赖收集、异步与测试**。
-- **`Element` 与依赖**：`dependOnInheritedWidgetOfExactType` 会在 `Element` 上登记依赖，通知时精准重建相关子树。
+- `**Element` 与依赖**：`dependOnInheritedWidgetOfExactType` 会在 `Element` 上登记依赖，通知时精准重建相关子树。
 
 ---
 
@@ -98,16 +100,18 @@ class MyData extends InheritedWidget {
 
 ### 3.1 顶层分类
 
-- `Key` 的常见子类：**`LocalKey`**、**`GlobalKey`**。
+- `Key` 的常见子类：`**LocalKey`**、`**GlobalKey**`。
 - `LocalKey` 再分为：`ValueKey`、`ObjectKey`、`UniqueKey`。
 
 ### 3.2 LocalKey 三种
 
-| 类型 | 标识依据 | 典型用途 |
-|------|----------|----------|
-| `ValueKey` | **值相等**（`==` / `hashCode`） | 列表项用稳定业务 id：`ValueKey(todo.id)` |
-| `ObjectKey` | **对象身份**（引用同一实例） | 以「对象本身」区分身份时 |
-| `UniqueKey` | **每次 new 都不同** | 强制每次重建都是新实例（慎用，易抖动） |
+
+| 类型          | 标识依据                       | 典型用途                            |
+| ----------- | -------------------------- | ------------------------------- |
+| `ValueKey`  | **值相等**（`==` / `hashCode`） | 列表项用稳定业务 id：`ValueKey(todo.id)` |
+| `ObjectKey` | **对象身份**（引用同一实例）           | 以「对象本身」区分身份时                    |
+| `UniqueKey` | **每次 new 都不同**             | 强制每次重建都是新实例（慎用，易抖动）             |
+
 
 ### 3.3 GlobalKey（补充）
 
@@ -133,8 +137,8 @@ ListView(
 ### 4.1 模型要点（面试高频）
 
 - Dart **默认单线程事件循环**；`Future` / `async` **不**等于多核并行。
-- **`Isolate`** 才是 **多内存堆** 的并行单元：**不共享可变内存**，靠 **`SendPort` / `ReceivePort`** 传消息（可序列化对象）。
-- `Isolate.spawn` 的入口必须是 **顶层函数** 或 **`static` 方法**（与截图笔记一致）。
+- `**Isolate`** 才是 **多内存堆** 的并行单元：**不共享可变内存**，靠 `**SendPort` / `ReceivePort`** 传消息（可序列化对象）。
+- `Isolate.spawn` 的入口必须是 **顶层函数** 或 `**static` 方法**（与截图笔记一致）。
 
 ### 4.2 最小 spawn 示例（主 Isolate 收消息）
 
@@ -159,9 +163,9 @@ void isolateEntry(SendPort replyToMain) {
 ### 4.3 双向通信思路（笔记中的「握手 + 单次请求 Future」）
 
 - Worker 启动后先把 **自己的 `SendPort`** 发回主 Isolate（握手）。
-- 主 Isolate 用 **临时 `ReceivePort`** 把「本次请求的回调 `SendPort`」随参数发给 Worker，从而把一次往返包成 **`Future`**（`receivePort.first`）。
+- 主 Isolate 用 **临时 `ReceivePort`** 把「本次请求的回调 `SendPort`」随参数发给 Worker，从而把一次往返包成 `**Future**`（`receivePort.first`）。
 
-涉及 **`await for`**：对 `ReceivePort` 监听时，可按流式处理多条请求。
+涉及 `**await for**`：对 `ReceivePort` 监听时，可按流式处理多条请求。
 
 ---
 
@@ -172,7 +176,7 @@ void isolateEntry(SendPort replyToMain) {
 **思路摘要**：
 
 - 若不要随机坐标，可用规则网格（如 `GridView`）直接铺满。
-- 随机坐标：在合法范围内随机 `(x, y)`，用 `Rect` 与已有矩形 **`overlaps`** 检测；重叠则重试，并对失败次数设上限避免死循环。
+- 随机坐标：在合法范围内随机 `(x, y)`，用 `Rect` 与已有矩形 `**overlaps`** 检测；重叠则重试，并对失败次数设上限避免死循环。
 
 ```dart
 import 'dart:math';
@@ -256,52 +260,69 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 
 ### 6.1 异步
 
-| 语法 | 含义 |
-|------|------|
-| `async` | 标记函数体可用 `await`，返回值包装为 `Future`。 |
-| `await` | 等待 `Future`/`Stream` 事件（在异步函数内）。 |
-| `await for` | 异步 for：遍历 `Stream`（如持续从 `ReceivePort` 收消息）。 |
-| `Future<T>` | 表示稍后完成的单次异步结果。 |
-| `Stream<T>` | 表示随时间产生的一系列事件。 |
+
+| 语法          | 含义                                                                                                                                   |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `async`     | 标记函数体可用 `await`，返回值包装为 `Future`。                                                                                                     |
+| `async*`    | **异步生成器**：函数体可用 `await`，返回 `**Stream<T>`**；用 `yield` / `yield*` 向监听者产出事件（**惰性**：通常在被 `listen` / `await for` 消费时才逐步执行到对应 `await` 之后）。 |
+| `yield`     | 在 `async*` 内向当前 `Stream` **发送单个事件**，发送后可在后续事件前 `await` 其它异步工作。                                                                       |
+| `yield*`    | **顺序委托**到另一个 `Stream`：先把子流的事件全部转发给监听者，子流结束后再继续执行当前 `async*` 函数后续代码。                                                                  |
+| `await`     | 等待 `Future`/`Stream` 事件（在异步函数内）。                                                                                                     |
+| `await for` | 异步 for：遍历 `Stream`（如持续从 `ReceivePort` 收消息；也常与 `async*` 组合「读流再 yield 出去」）。                                                            |
+| `Future<T>` | 表示稍后完成的单次异步结果。                                                                                                                       |
+| `Stream<T>` | 表示随时间产生的一系列事件。                                                                                                                       |
+
+
+- **与 `async` 的对比**：`async` 对应「一次算完」的 `**Future`**；`async*` 对应「多次产出」的 `**Stream**`。
+- **官方**：异步生成器（`sync*`/`async*`、`yield`/`yield*`）见 Dart 语言指南 — Functions — Generators：`https://dart.dev/language/functions#generators`
+- **动手**：本仓库 `flutter_interview_demo/lib/demos/async_star_yield_lab_page.dart`（首页入口「async* / yield / yield*」）。
 
 ### 6.2 面向对象与类型系统
 
-| 语法 | 含义 |
-|------|------|
-| `class`、`extends` | 类与单继承。 |
-| `implements` | 实现接口（可多实现）。 |
-| `mixin ... on ...` | 受限 mixin：只能混入在指定超类型子类型上（如 `WidgetsBinding on SchedulerBinding`）。 |
-| `super(...)` | 调用父类构造 / 父成员。 |
-| `this.field` / 初始化列表 | 构造器简写：`MyData({required this.counter})`。 |
-| `final` | 运行期一次性赋值；常用于不可变字段、Widget 配置字段。 |
-| `const` | 编译期常量；`const` 构造的 Widget 有助于减少重建成本。 |
-| `static` | 属于类本身：`Isolate.spawn` 常用 `static` 顶层入口。 |
+
+| 语法                   | 含义                                                               |
+| -------------------- | ---------------------------------------------------------------- |
+| `class`、`extends`    | 类与单继承。                                                           |
+| `implements`         | 实现接口（可多实现）。                                                      |
+| `mixin ... on ...`   | 受限 mixin：只能混入在指定超类型子类型上（如 `WidgetsBinding on SchedulerBinding`）。 |
+| `super(...)`         | 调用父类构造 / 父成员。                                                    |
+| `this.field` / 初始化列表 | 构造器简写：`MyData({required this.counter})`。                         |
+| `final`              | 运行期一次性赋值；常用于不可变字段、Widget 配置字段。                                   |
+| `const`              | 编译期常量；`const` 构造的 Widget 有助于减少重建成本。                              |
+| `static`             | 属于类本身：`Isolate.spawn` 常用 `static` 顶层入口。                          |
+
 
 ### 6.3 空安全（Null Safety）
 
-| 语法 | 含义 |
-|------|------|
-| `T` / `T?` | 非空类型 / 可空类型。 |
-| `!` | 断言非空（失败会运行时异常）。 |
-| `?.`、`??`、`??=` | 可空调用、合并空值、空则赋值。 |
-| `required` | 命名参数必须传入（常与 NNBD 一起用于构造器）。 |
+
+| 语法              | 含义                         |
+| --------------- | -------------------------- |
+| `T` / `T?`      | 非空类型 / 可空类型。               |
+| `!`             | 断言非空（失败会运行时异常）。            |
+| `?.`、`??`、`??=` | 可空调用、合并空值、空则赋值。            |
+| `required`      | 命名参数必须传入（常与 NNBD 一起用于构造器）。 |
+
 
 ### 6.4 函数与集合
 
-| 语法 | 含义 |
-|------|------|
-| `=>` | 单行函数体 / 箭头表达式。 |
-| `_` | 匿名参数占位：`(_, __) {}`。 |
+
+| 语法                          | 含义                                                                |
+| --------------------------- | ----------------------------------------------------------------- |
+| `=>`                        | 单行函数体 / 箭头表达式。                                                    |
+| `_`                         | 匿名参数占位：`(_, __) {}`。                                              |
 | `for-in` / collection `for` | `for (final x in xs)`；UI 里常用 `[for (final r in rs) Widget(...)]`。 |
-| `List.generate` | 按下标生成固定长度列表。 |
+| `List.generate`             | 按下标生成固定长度列表。                                                      |
+
 
 ### 6.5 并发与底层库
 
-| 语法 | 含义 |
-|------|------|
-| `import 'dart:isolate';` | `Isolate`、`SendPort`、`ReceivePort`。 |
-| `import 'dart:convert';` | `json.encode` / `json.decode`。 |
-| `import 'dart:math';` | `Random`、`Rect`（在 `dart:ui`/`vector_math` 概念上常配合 Flutter 几何）。 |
+
+| 语法                       | 含义                                                            |
+| ------------------------ | ------------------------------------------------------------- |
+| `import 'dart:isolate';` | `Isolate`、`SendPort`、`ReceivePort`。                           |
+| `import 'dart:convert';` | `json.encode` / `json.decode`。                                |
+| `import 'dart:math';`    | `Random`、`Rect`（在 `dart:ui`/`vector_math` 概念上常配合 Flutter 几何）。 |
+
 
 ### 6.6 Flutter 侧常见「看起来像 Dart 关键字」的概念
 
@@ -327,6 +348,9 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 - [7.8 Flutter/Dart 的事件循环与帧调度机制是什么？](#78-flutterdart-的事件循环与帧调度机制是什么参考官方描述)
 - [7.9 `RepaintBoundary` 原理是什么？](#79-repaintboundary-原理是什么面试怎么讲)
 - [7.10 Flutter 怎么做性能优化？](#710-flutter-怎么做性能优化结合项目app性能分析查漏补缺)
+  - [7.10.1 `ListView.builder` 内部怎么优化列表？](#7101-listviewbuilder-内部怎么优化列表和列表卡顿是什么关系)
+- [7.11 `reassemble` 可以直接调用吗？](#711-reassemble-可以直接调用吗)
+- [7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？](#712-flutter-与原生交互platform-channel-有哪些还有哪些方式)
 
 ### 7.1 Cubit 是怎么实现数据驱动刷新的？
 
@@ -369,7 +393,7 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 
 ### 7.7 Flutter 项目模块化怎么理解？结合 `xbit-app-mobile-v2` 怎么讲
 
-- **一句话结论**：`xbit-app-mobile-v2` 属于**单工程（single app）**形态的模块化——通过**目录分层 + barrel exports + 集中式 DI/路由/多环境入口**来实现“可维护/可复用/可并行”的模块边界；业务域按 feature 概念存在，但没有拆成多 package 的 monorepo。
+- **一句话结论**：`xbit-app-mobile-v2` 属于**单工程（single app）形态的模块化——通过目录分层 + barrel exports + 集中式 DI/路由/多环境入口**来实现“可维护/可复用/可并行”的模块边界；业务域按 feature 概念存在，但没有拆成多 package 的 monorepo。
 - **项目里的“模块化落点”**：
   - **核心能力集中**：`lib/core/` 聚合数据访问（GraphQL/REST）、存储、服务、用例与 BLoC，并通过 `lib/core/core.dart` 统一 `export` 作为“核心模块出口”。
   - **UI 组件体系**：`lib/ui/` 类 design system（atoms/molecules/organisms/templates/pages）+ `ui/v1/` 兼容/迁移层，并通过 `lib/ui/ui.dart` 做统一出口。
@@ -386,18 +410,38 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 - **一句话结论**：Dart 的异步由 **事件循环**调度（microtask queue 优先于 event queue）；Flutter 在此之上用 **SchedulerBinding** 把 UI 更新组织成“帧”，并在每帧内按固定阶段驱动渲染流水线（layout/paint/composite/semantics），最后执行 post-frame 回调。
 - **要点**：
   - **Dart microtask 优先**：`scheduleMicrotask` 注册的回调会在其它异步事件（如 Timer）之前执行；microtask 用多了可能饿死 event queue（官方警告）。  
-    参考：`scheduleMicrotask`（Dart API）`https://api.dart.dev/stable/dart-async/scheduleMicrotask.html`
+  参考：`scheduleMicrotask`（Dart API）`https://api.dart.dev/stable/dart-async/scheduleMicrotask.html`
   - **帧回调分类（SchedulerBinding）**：官方将帧内回调分为 transient / persistent / post-frame，并解释它们与 `onBeginFrame/onDrawFrame` 的关系。  
-    参考：`SchedulerBinding`（Flutter API）`https://docs.flutter.dev/flutter/scheduler/SchedulerBinding-mixin.html`
+  参考：`SchedulerBinding`（Flutter API）`https://docs.flutter.dev/flutter/scheduler/SchedulerBinding-mixin.html`
   - **addPostFrameCallback 的语义**：回调在一帧结束后、渲染流水线 flush 之后执行；不主动请求新帧；只执行一次且不可取消。  
-    参考：`addPostFrameCallback`（Flutter API）`https://api.flutter.dev/flutter/scheduler/SchedulerBinding/addPostFrameCallback.html`
+  参考：`addPostFrameCallback`（Flutter API）`https://api.flutter.dev/flutter/scheduler/SchedulerBinding/addPostFrameCallback.html`
   - **渲染流水线阶段（drawFrame）**：官方列出每帧包含 layout、compositing bits、paint、compositing、semantics、finalization 等阶段。  
-    参考：`RendererBinding.drawFrame`（Flutter API）`https://api.flutter.dev/flutter/rendering/RendererBinding/drawFrame.html`
+  参考：`RendererBinding.drawFrame`（Flutter API）`https://api.flutter.dev/flutter/rendering/RendererBinding/drawFrame.html`
 - **常见追问**：
   - **为什么要用 `addPostFrameCallback`**：拿尺寸/做滚动/依赖布局结果时，保证本帧渲染完成后再执行。
-  - **`Future`/`async` 等于多线程吗**：不等；它们仍在同一 isolate 的事件循环上，真正并行靠 Isolate。
+  - `**Future`/`async` 等于多线程吗**：不等；它们仍在同一 isolate 的事件循环上，真正并行靠 Isolate。
+
+#### 7.8.1 一帧什么时候被「要」出来？和 `setState`、`build` 谁先谁后？
+
+- **先纠一个常见误解**：不是「`**build` 跑完才触发一帧**」。`**build` 是这一帧渲染流水线里的一环**（在 `drawFrame` 的 **build** 阶段里执行），帧先被调度/进入绘制流程，才会轮到各 `Element` 的 `build`。
+- **谁在「要帧」（schedule frame）？**（多路合并，同一帧里可能同时满足多种原因）
+  - **显示器 vsync**：周期性「该画下一屏了」，引擎侧会驱动 Flutter 走帧（空闲时也可能不每一拍都画，取决于是否有脏标记等）。
+  - **UI 标脏后请求重绘**：例如 `setState` → `markNeedsBuild`；`RenderObject.markNeedsLayout` / `markNeedsPaint`；路由切换、`InheritedWidget` 通知依赖者等，最终常落到 `**SchedulerBinding.scheduleFrame()`**（若本帧已安排则可能不再重复排队，而是本帧内处理脏树）。
+  - **动画 ticker**：`AnimationController` 等会按 tick **持续要帧**，直到停止。
+  - **其它**：窗口尺寸变化、文本输入、部分平台通道回调、`Semantics` 更新等也可能间接触发「需要一帧」。
+- `**setState` 发生时到底怎样？**（面试按这个顺序说）
+  1. **先同步执行**你传入的回调（改字段在这里完成）。
+  2. 再 `**markNeedsBuild`**，把对应 `Element` 标脏，并在需要时 **登记下一帧**（与「回调是否已 return」强相关：**return 之后不会立刻在同一同步栈里自动 `build`**）。
+  3. 等引擎/框架进入 **某一帧的 build 阶段**时，才对脏的 `Element` **自上而下**调用 `build`（可能一次帧里合并多次 `setState` 的结果，只 build 到稳定）。
+- **所以不是二选一**：既不是「**只有** `setState` 结束才触发帧」，也不是「**必须**等整棵子树所有 `build` 写完才叫一帧开始」——准确说是：**先有帧调度/进入 `drawFrame`，再在帧内执行 build → layout → paint → composite → …**。
+- **典型场景覆盖**：
+  - **同一事件里连续多次 `setState`**：通常 **合并到同一帧的一次 build pass**（仍算多次标脏，但最终呈现一帧结果）；不要在循环里无意义狂 `setState`。
+  - `**await` 之后再 `setState`**：中间已让出事件循环，**常见于下一事件/下一帧**才执行到 `setState` 回调；是否「跨帧」取决于调度时机，不要写「必须下一帧」的硬编码假设，用 `mounted` / `SchedulerBinding` 语义理解即可。
+  - **只在 `build` 里读同步数据**：本帧 `build` 读到的应是**本帧 build 开始前**已提交的状态；不要在 `build` 里再 `setState` 造成同帧重入式循环。
+  - `**addPostFrameCallback`**：排在 **当前帧 pipeline（含 layout/paint）走完之后**；**不会**单独为此再「要一帧」，但若回调里又 `setState`，会再触发后续帧。
+  - **动画每帧**：ticker 驱动 **每帧都走**（至少 build/layout/paint 中参与动画的部分更忙），与「用户点一次按钮才 `setState`」节奏不同。
 - **更新时间**：2026-04
-- **关键词**：`event loop` `microtask` `SchedulerBinding` `drawFrame` `addPostFrameCallback`
+- **关键词**：`event loop` `microtask` `SchedulerBinding` `drawFrame` `addPostFrameCallback` `scheduleFrame` `markNeedsBuild`
 
 ### 7.9 `RepaintBoundary` 原理是什么？面试怎么讲
 
@@ -428,7 +472,7 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
     - **GPU**：页面过于复杂/层级深，渲染耗时或触发不必要的 repaint
 - **定位步骤（你做过什么）**：
   - **看帧耗时**：在 DevTools Performance/Timeline 里找掉帧帧，确认是 build/layout/paint 哪块超预算。
-  - **看页面初始化**：例如文档以某页面为例，`initState` 曾占用单帧约 36%（\(6.1/16.67ms\)），优化后关注第二帧是否仍丢帧，并继续找“方法耗时”。
+  - **看页面初始化**：例如文档以某页面为例，`initState` 曾占用单帧约 36%（6.1/16.67ms），优化后关注第二帧是否仍丢帧，并继续找“方法耗时”。
 - **CPU 侧优化（减少主线程工作量）**：
   - **延迟非必要工作**：埋点/日志等可延迟到首帧后几帧执行（`addPostFrameCallback`/延时），或放到后台任务队列顺序执行（避免首帧拥塞）。
   - **Isolate/compute**：CPU 密集型（如 JSON → Model、大量计算）放到 isolate/`compute`。
@@ -437,10 +481,37 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
   - **降低页面复杂度与嵌套**：减少重型 widget、避免无意义层级。
   - **必要时用 `RepaintBoundary`**：把高频变化区域与大静态背景隔离，减少 repaint 扩散（见 7.9）。
 - **减少 build 次数 / 缩小刷新范围（项目文档重点）**：
-  - **`build()` 保持 Clean**：build 可能被多次调用，不能有不可预期副作用。
+  - `**build()` 保持 Clean**：build 可能被多次调用，不能有不可预期副作用。
   - **避免大范围 `setState`**：把需要刷新的小块抽成更小的 `StatefulWidget`，缩小重建范围。
   - **可变组件下沉到叶子节点**：让上层尽量稳定，只让最小子树变化。
   - **优先 `const`**：不变的 widget 用 `const`，减少重建成本。
+
+#### 7.10.1 `ListView.builder` 内部怎么优化列表？和「列表卡顿」是什么关系？
+
+- **属于哪类优化**：长列表是典型的 **UI 卡顿 / 掉帧** 来源之一——根因常在 **单帧内 build/layout 过重**（CPU）或 **子树过复杂导致 paint 贵**（GPU）。`ListView.builder` 解决的是 **「不要一次性为全量数据建整棵子树」**，属于 **缩小每帧工作量 + 控制内存** 的列表专项优化，应和 7.10 里「缩小刷新范围 / 减少 build」一起看。
+- **和 `ListView(children: [...])` 的差别（面试抓这句）**：
+  - `**ListView` + 固定 `children`**：会在布局阶段**为列表里每一项都创建子 Widget**（数据上千就上千个 `Element`），首帧/滚动前就可能 **CPU 爆表 + 内存暴涨**，极易 **首屏卡死**。
+  - `**ListView.builder`**：底层走 `**SliverChildBuilderDelegate**`（与 `GridView.builder` 同类），**只对「视口附近 + cacheExtent」内的 index 调用 `itemBuilder`**；滑出视口的子项对应的 `Element` 可被**回收复用**给新的 index（滑动窗口），从而 **build/layout 的对象数量与列表总长度解耦**。
+- **内部机制（说 4 点够）**：
+  1. **懒构建**：`itemBuilder(context, index)` **按需**调用，不在首帧一次性构建全长。
+  2. **视口驱动**：与 `**Viewport` + `Scrollable`** 协同，只关心当前滚动位置上下窗口内的子 sliver。
+  3. `**cacheExtent**`：在视口外多预建/保留一小段，减少快速滑动时白块；**过大**会反向增加内存与构建压力，要取舍。
+  4. **复用**：同一套 slot 上替换不同 index 的子 widget 时，依赖 `**Key`（尤其 `ValueKey`/`ObjectKey`）** 保持状态正确；`itemExtent` 固定高度时框架可**跳过部分子项主轴测量**，进一步省 layout 成本。
+- `**cacheExtent` 是啥意思？（单位：逻辑像素）**  
+  - **视口（viewport）**：屏幕上当前「能看见」的那一段列表区域。  
+  - `**cacheExtent`**：在视口的 **上方 + 下方各多延伸一段距离**（默认约 **250dp** 量级，以文档为准），**这段延伸区里的 item 也会提前 build/layout**（仍算懒加载，只是「可见窗口」比肉眼所见更大一圈）。  
+  - **目的**：快速惯性滑动时，下一屏内容已经建好，**减少露白 / 空白闪一下**。  
+  - **代价**：窗口越大，**同时存在的子项越多** → 更多 **CPU（build/layout）** 与 **内存**；设成 `0` 或很小可省资源，但猛滑更容易空白。  
+  - **面试一句**：在「流畅」与「内存/首屏压力」之间做 **预渲染带宽** 的取舍。
+- `**itemExtent` 是啥意思？**  
+  - 仅当列表每一项在 **滚动主轴方向上的尺寸都相同** 时才有意义（竖向 `ListView` 即 **每条行高固定**）。  
+  - 你告诉框架：**每一行高度就是这么多逻辑像素**，框架在算滚动偏移、跳转到某 index、布置子项时，可以走 **固定步长** 的优化路径，**少做「先量每个子项多高」这类动态测量**（大列表滚动/定位时更省）。  
+  - **注意**：若实际 cell 高度与 `itemExtent` **不一致**，会出现 **布局裁切/重叠/异常**，只适合 **真正等高行**（或 `prototypeItem` 一类 API 的变体场景以文档为准）。  
+  - **和 `itemBuilder` 里写死 `SizedBox(height: 72)` 的差别**：死高只是 widget 约束；`**itemExtent` 是把「主轴子项尺寸」告诉 `ScrollView` 这一层**，让 **滚动与 sliver 布局**也能用上「等高」这一事实。
+- **仍可能卡的情况（别神话 builder）**：`itemBuilder` 里每个 cell **本身太重**（大图未缩放、复杂嵌套、在 build 里做重计算）照样掉帧——需要再配合 `**const` 拆分、`RepaintBoundary`、图片 `cacheWidth/cacheHeight`、异步/缓存** 等。
+- **参考**：`ListView.builder` `https://api.flutter.dev/flutter/widgets/ListView/ListView.builder.html`
+- **动手**：`flutter_interview_demo/lib/demos/list_item_extent_lab_page.dart`（三个 Tab：等高 + `itemExtent`、等高不写、`itemExtent` 与真实行高不一致看溢出）。
+- **关键词补充**：`SliverChildBuilderDelegate` `Viewport` `cacheExtent` `itemExtent` `懒加载`
 - **动画与重建（隔离可变/不可变）**：
   - 动画场景要把“不会变的外壳”（如 `GestureDetector` 等）与“会变的内容”拆开。
   - 内容类型一致但数据变动时，合理使用 `ValueKey`；也可考虑 `AnimatedSwitcher`/`PageView`/`ListView.builder` + 定时器实现轮播，并缓存可复用子 widget。
@@ -459,7 +530,68 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
   - 资源压缩：安装包内图片资源压缩后再用。
   - 开启静态检查：启用 `flutter_lints` 规范化。
 - **更新时间**：2026-04
-- **关键词**：`DevTools` `FPS` `Jank` `build clean` `setState scope` `const` `RepaintBoundary` `cacheWidth` `cacheHeight` `Isolate` `compute`
+- **关键词**：`DevTools` `FPS` `Jank` `build clean` `setState scope` `const` `RepaintBoundary` `cacheWidth` `cacheHeight` `Isolate` `compute` `ListView.builder` `Viewport` `cacheExtent`
+
+### 7.11 `reassemble` 可以直接调用吗？
+
+- **一句话结论**：**没有**面向业务代码的“单独公开 API”让你像 `setState()` 一样随时调用 `reassemble()`；它是 `State` 的**生命周期回调**，由框架在 **debug 模式热重载（hot reload）** 时触发。
+  - 官方语义参考：`State.reassemble` `https://api.flutter.dev/flutter/widgets/State/reassemble.html`
+- **典型使用场景（解决什么问题）**：
+  - **热重载后需要“对齐调试状态”**：例如你在 debug 里维护了计数器、开关、mock 数据源、临时缓存；热重载不会走 `initState`，但会走 `reassemble`，适合把这类 **debug-only 状态**重置到一致。
+  - **热重载后需要重新挂接/校验 debug 工具**：比如重新注册某些只在 debug 生效的监听器、打印关键配置、断言某些不变量（注意别做重 IO）。
+  - **热重载后需要刷新“非 Widget 树状态”但又不适合放 `build`**：例如某些纯 Dart 单例/缓存（仅 debug）在 hot reload 后应清空，避免“代码已更新但内存还是旧对象”的错觉。
+- **不该用它解决什么（常见误区）**：
+  - **不要当业务刷新入口**：正常 UI 更新用 `setState`/状态管理；需要首帧后执行用 `addPostFrameCallback`；需要重新创建子树用 `Key`/路由替换。
+  - **不要在 `reassemble` 里做重活**：它发生在热重载链路里，过重逻辑会让你误以为“热重载卡/Flutter 慢”。
+  - **不要依赖它在 Release/Profile 稳定触发**：它是 **debug/hot reload 语义**，不能替代 `initState`/`didChangeDependencies`。
+- **要点**：
+  - 你在 `State` 里 `@override void reassemble()`，用于热重载后做一些 **debug 辅助检查**（例如重置某些 debug 状态、打印对比）。
+  - **Release/Profile** 里不要依赖它做业务逻辑：它不会像 `initState` 那样稳定出现。
+  - 如果你想“手动触发一次类似热重载后的清理/重建”，通常用 `**setState` / 状态管理刷新 / 重建子树（Key）/ 重新创建页面路由** 等方式，而不是调用 `reassemble`。
+- **常见追问**：
+  - **热重启（hot restart）会走 `reassemble` 吗**：更接近“重新启动应用”，不等价于 hot reload 的那套 `reassemble` 语义；面试别混用概念。
+- **再细一层：先纠正「重启」这个词**（很多人卡在这里）：
+  - `**reassemble` 主要绑定的是「热重载 hot reload」**（IDE 里保存触发的 reload、`r` 等）：**同一个 `State` 对象往往还在**，字段里仍是**热重载前的内存值**；但你的**源码默认值/逻辑**可能已经改了，于是出现「代码看着对了，运行表现却像旧的」。
+  - **热重启 hot restart / 杀进程冷启动**：通常会重新跑 `main()`、重建 `Element/State`，**更该靠 `initState` / `dispose` / DI 注册** 来建立/释放资源；**不要指望用 `reassemble` 替代这一套**——它的设计目的不是「每次启动帮你对齐」。
+- **「对齐调试状态」到底在对齐什么？（用一句话 + 三个具象例子）**：
+  - **一句话**：把「**还在内存里的旧调试状态**」拉回到和你**刚改完的代码/默认假设**一致，减少热重载带来的**假 bug**。
+  - **例子 1 — 你改了字段初始值，但热重载不会回填**：源码里把 `_showDebugBanner` 默认从 `true` 改成 `false`，热重载后 **State 里仍是 `true`**（因为没重新 `initState`）。在 `reassemble` 里 `setState(() => _showDebugBanner = false)` 或重置为「当前源码约定的 debug 初值」，界面才和预期一致。
+  - **例子 2 — 全局单例 / static / 顶层变量**：`static final _cache = <String, dynamic>{};` 或 `GetIt` 里某个 debug 实现，热重载后**对象还在**，里面缓存的还是旧结构。`reassemble` 里 `assert` 包一层，只在 debug 清空或换成新 mock，避免你对着「旧缓存」调半天。
+  - **例子 3 — 只用于调试的监听器/定时器**：热重载后可能留下**旧闭包**仍指向旧逻辑；在 `reassemble` 里取消再注册（要非常克制，别和正式 `dispose` 职责打架），或至少打日志确认当前挂的是哪一版回调。
+- **对我写代码有啥实际用处？（诚实版）**：
+  - **大多数业务页面一辈子不用写 `reassemble`**：`setState`、状态管理、`initState`/`dispose` 足够。
+  - **真正有用的时候**：你经常在 **hot reload** 下调试，且页面/模块里混了 **static、单例、debug 开关、mock 缓存** 这类「**不在 Widget 字段里、却会影响表现**」的东西；这时 `reassemble` 是一个**小而明确的钩子**：热重载完**补一刀**，把调试环境拉回「和当前代码一致」。
+  - **实现习惯**：`reassemble` 里只做 **debug 且轻量** 的事；用 `assert(() { ...; return true; }());` 包起来，release 编译会裁掉，避免误伤线上语义。
+- **更新时间**：2026-04
+- **关键词**：`reassemble` `hot reload` `State lifecycle` `debug`
+
+### 7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？
+
+- **一句话结论**：Dart 与 Android/iOS **默认不在同一套语言/ABI 里直接互相调函数**；官方通用桥梁是 `**BinaryMessenger` + 编解码器（codec）** 上叠出来的 `**MethodChannel` / `BasicMessageChannel` / `EventChannel`**。业务侧常用 **Plugin（插件）**把这些注册逻辑封装好；类型安全可再上 **Pigeon（代码生成）**。
+- **三类 Platform Channel（记名字 + 用途）**：
+  - `**MethodChannel`**：**一问一答**式异步调用。Dart `invokeMethod` → `Future`；原生侧 `setMethodCallHandler` 根据 `method` 字符串分发，结果再通过 messenger 回传。适合「调一次原生能力、拿结果/异常」。
+  - `**EventChannel`**：**原生 → Dart 的持续事件流**（典型：传感器、电量、蓝牙状态）。Dart 侧 `receiveBroadcastStream()` 得到 `Stream`；原生侧在 `StreamHandler` 里 `onListen` / `onCancel` 管理订阅生命周期。
+  - `**BasicMessageChannel`**：**双向传消息**，不强制「method 名」模型；可配 `**StandardMessageCodec` / `JSONMessageCodec` / 自定义 `MessageCodec`**（含二进制）。适合自定义协议、低层或要与非 Flutter 引擎侧通信的场景。
+- **常见追问：只有 `BasicMessageChannel` 是双向的吗？**  
+  - **不是**。`**MethodChannel` 也支持双向**：Dart `invokeMethod` 调原生；Dart 侧 `setMethodCallHandler` + 原生侧 `invokeMethod`（各端 API 名以文档为准）可实现 **原生 → Dart**。  
+  - `**EventChannel`** 按常见用法是 **原生 → Dart 的持续事件**（`Stream`），**不强调** Dart 沿同一条 API 往原生「推流」；反向控制往往另开 `MethodChannel` 等。  
+  - `**BasicMessageChannel`** 是 **API 上最对称** 的「两端都能 `send`」模型；面试别背成「只有它能双向」。
+- **具体怎么实现（面试说链路即可）**：
+  1. **约定 channel 名**（字符串，全局唯一习惯用 `包名/能力` 前缀，避免冲突）。
+  2. **同一条 messenger**：`WidgetsFlutterBinding.ensureInitialized()` 后拿到的引擎 `**BinaryMessenger`**（Dart 里常通过 `MethodChannel(name, ...)` 间接使用），Android 侧 `flutterEngine.dartExecutor.binaryMessenger`，iOS 侧 `FlutterBinaryMessenger`（如 `FlutterViewController`）。
+  3. **编解码**：默认 `**StandardMethodCodec` / `StandardMessageCodec`**，把 Dart 的 `null/bool/int/double/String/Uint8List/List/Map` 等与平台侧类型互转；传复杂对象要么拆成 Map，要么走 **JSON 字符串**、要么 **自定义 codec**。
+  4. **线程/队列**：Android 上 handler 线程、iOS 上主线程/约定队列要与 Flutter 文档一致（插件里常见 **切主线程**再回调）；避免在原生回调里做长阻塞。
+  5. **插件形态**：`android/src/main/.../XxxPlugin.kt` + `ios/Classes/XxxPlugin.m/swift` 在 `onAttachedToEngine` 里  `**registrar.messenger()` 上 `addMethodCallDelegate` / `setMethodCallHandler`**，与 Dart 侧 `static final _ch = MethodChannel('...')` 对齐。
+- **官方入口**：Writing custom platform code：`https://docs.flutter.dev/platform-integration/platform-channels`
+- **除了 Platform Channel，还有哪些「和原生打交道」的方式？**（按场景选）
+  - `**dart:ffi`（FFI）**：Dart **直接调用 C ABI**（`.so` / `.dylib` / 静态链接库），绕过 channel 的编解码与异步调度，适合 **高性能、同步数学/编解码**；要自己管 **内存、线程安全、符号导出**，移动端还要注意 **架构 fat binary / 签名**。
+  - **Pigeon**：在 Dart/Java/Kotlin/ObjC/Swift 之间 **生成类型安全的 channel 封装**，底层仍是 channel，但减少手写字符串 method 名与参数拼错。
+  - **Platform View（`AndroidView` / `UiKitView`）**：把 **整段原生 UI** 嵌进 Flutter 树（地图、WebView 老方案等）；与「传数据」不同维，底层仍大量依赖 **texture / hybrid composition** 等与引擎协作机制（面试可说「不等价于 MethodChannel，但常一起出现」）。
+  - **Add-to-app（Flutter 模块嵌现有 App）**：工程形态（`FlutterEngine` 由原生持有、路由与生命周期由宿主控制），**不替代** channel，只是原生侧初始化 Flutter 的方式不同。
+  - **只走系统能力、不经手写 channel**：例如 **Deep Link / Universal Link**、系统 **Share Sheet**、**Push（FCM/APNs）** 等，往往通过 **已有官方或三方 plugin**（其内部仍多为 channel/ffi）。
+  - **Web / Desktop**：另有 **dart:js_interop**、`**MethodChannel` 对宿主窗口** 等，与移动端「双端 Kotlin/Swift」叙述类似但宿主不同。
+- **更新时间**：2026-04
+- **关键词**：`MethodChannel` `EventChannel` `BasicMessageChannel` `BinaryMessenger` `codec` `Plugin` `Pigeon` `dart:ffi` `PlatformView` `add-to-app`
 
 ---
 
@@ -479,3 +611,4 @@ class _NonOverlappingSquaresState extends State<NonOverlappingSquares> {
 ## 维护说明
 
 - 若你后续继续补充截图或新题，建议按 **「概念题 / 手写题 / 工程题」** 三类往对应章节追加，Dart 关键词统一补到第 6 节做索引。
+
