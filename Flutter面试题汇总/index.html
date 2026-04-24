@@ -1,0 +1,2666 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sageone-ls.github.io/flutter-interview-notes/Flutter%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>面试题汇总 - Flutter 面试题笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flutter" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Flutter 面试题笔记" class="md-header__button md-logo" aria-label="Flutter 面试题笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Flutter 面试题笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              面试题汇总
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  面试题汇总
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Web3 × Flutter
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  iOS 面试题汇总
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Flutter 面试题笔记" class="md-nav__button md-logo" aria-label="Flutter 面试题笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Flutter 面试题笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-statefulwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. StatefulWidget 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. StatefulWidget 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 各阶段回调（按调用顺序理解）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-addpostframecallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 一帧绘制后的回调：addPostFrameCallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 生命周期归纳（四个大块）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-inheritedwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. InheritedWidget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. InheritedWidget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 最小示例（与笔记一致）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 面试常追问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Key 的类型与使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Key 的类型与使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 顶层分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-localkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 LocalKey 三种
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-globalkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 GlobalKey（补充）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 列表示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Isolate 与并发
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Isolate 与并发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 模型要点（面试高频）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-spawn-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 最小 spawn 示例（主 Isolate 收消息）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-future" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 双向通信思路（笔记中的「握手 + 单次请求 Future」）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 手写题：随机方块不重叠（Flutter）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Dart 语法与关键词扩展
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Dart 语法与关键词扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 异步
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 面向对象与类型系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-null-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 空安全（Null Safety）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 函数与集合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 并发与底层库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-flutter-dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Flutter 侧常见「看起来像 Dart 关键字」的概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 面试问答速记（Q&amp;A）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 面试问答速记（Q&amp;A）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.x 快速跳转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#71-cubit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Cubit 是怎么实现数据驱动刷新的？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cubit-setstate-statelesswidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 用 Cubit 就必须写 setState 吗？能全用 StatelessWidget 吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-setstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 所有状态管理触发刷新，都会走 setState 这条线吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-buildcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 BuildContext 是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-contextdependoninheritedwidgetofexacttypet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 context.dependOnInheritedWidgetOfExactType&lt;T&gt;() 会有性能问题吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-for-setstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 for 循环里写 setState 会执行多次重绘吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-flutter-xbit-app-mobile-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Flutter 项目模块化怎么理解？结合 xbit-app-mobile-v2 怎么讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78-flutterdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#781-setstatebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.1 一帧什么时候被「要」出来？和 setState、build 谁先谁后？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-repaintboundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 RepaintBoundary 原理是什么？面试怎么讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-flutter-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7101-listviewbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10.1 ListView.builder 内部怎么优化列表？和「列表卡顿」是什么关系？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-reassemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 reassemble 可以直接调用吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#712-flutter-platform-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.13 非 Flutter 面试官：观点不一致如何沟通（资深/架构视角）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#714-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.14 跨部门协作：Flutter「领地」与资源重复怎么办
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#715-2026-04-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.15 面试复盘（2026-04-23，公司/轮次待补）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 红黑树与 HashMap（面试：从“为什么”讲到“怎么落地”）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 数据加密与数据安全（移动端/Flutter 面试高频）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 常用排序方式与复杂度（面试：把“最坏情况”说到位）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-dio-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Dio 常用功能（Flutter 网络面试必备）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-onlog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 易混点：为什么有人写 (O(n\log n))，里面的 \\ 是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        维护说明
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web3 × Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS 面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-statefulwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. StatefulWidget 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. StatefulWidget 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 各阶段回调（按调用顺序理解）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-addpostframecallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 一帧绘制后的回调：addPostFrameCallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 生命周期归纳（四个大块）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-inheritedwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. InheritedWidget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. InheritedWidget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 最小示例（与笔记一致）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 面试常追问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Key 的类型与使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Key 的类型与使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 顶层分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-localkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 LocalKey 三种
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-globalkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 GlobalKey（补充）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 列表示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Isolate 与并发
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Isolate 与并发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 模型要点（面试高频）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-spawn-isolate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 最小 spawn 示例（主 Isolate 收消息）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-future" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 双向通信思路（笔记中的「握手 + 单次请求 Future」）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 手写题：随机方块不重叠（Flutter）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Dart 语法与关键词扩展
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Dart 语法与关键词扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 异步
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 面向对象与类型系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-null-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 空安全（Null Safety）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 函数与集合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 并发与底层库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-flutter-dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Flutter 侧常见「看起来像 Dart 关键字」的概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 面试问答速记（Q&amp;A）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 面试问答速记（Q&amp;A）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.x 快速跳转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#71-cubit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Cubit 是怎么实现数据驱动刷新的？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cubit-setstate-statelesswidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 用 Cubit 就必须写 setState 吗？能全用 StatelessWidget 吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-setstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 所有状态管理触发刷新，都会走 setState 这条线吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-buildcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 BuildContext 是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-contextdependoninheritedwidgetofexacttypet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 context.dependOnInheritedWidgetOfExactType&lt;T&gt;() 会有性能问题吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-for-setstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 for 循环里写 setState 会执行多次重绘吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-flutter-xbit-app-mobile-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Flutter 项目模块化怎么理解？结合 xbit-app-mobile-v2 怎么讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78-flutterdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#781-setstatebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.1 一帧什么时候被「要」出来？和 setState、build 谁先谁后？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-repaintboundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 RepaintBoundary 原理是什么？面试怎么讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-flutter-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7101-listviewbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10.1 ListView.builder 内部怎么优化列表？和「列表卡顿」是什么关系？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-reassemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 reassemble 可以直接调用吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#712-flutter-platform-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.13 非 Flutter 面试官：观点不一致如何沟通（资深/架构视角）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#714-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.14 跨部门协作：Flutter「领地」与资源重复怎么办
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#715-2026-04-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.15 面试复盘（2026-04-23，公司/轮次待补）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 红黑树与 HashMap（面试：从“为什么”讲到“怎么落地”）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 数据加密与数据安全（移动端/Flutter 面试高频）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 常用排序方式与复杂度（面试：把“最坏情况”说到位）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-dio-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Dio 常用功能（Flutter 网络面试必备）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-onlog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 易混点：为什么有人写 (O(n\log n))，里面的 \\ 是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        维护说明
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="flutter">Flutter 面试题汇总（个人笔记整理）</h1>
+<blockquote>
+<p>来源：本地截图笔记 + <code>iOS笔试题.docx</code> 中与 Flutter/Dart 相关的题目与答案思路。<br />
+下文在保留原意的基础上做了结构化，并补充 <strong>Dart 语法与关键词</strong> 便于对照复习。</p>
+</blockquote>
+<hr />
+<h2 id="_1">目录</h2>
+<ol>
+<li><a href="#1-statefulwidget">StatefulWidget 生命周期</a></li>
+<li><a href="#2-inheritedwidget">InheritedWidget</a></li>
+<li><a href="#3-key">Key 的类型与使用场景</a></li>
+<li><a href="#4-isolate">Isolate 与并发</a></li>
+<li><a href="#5-flutter">手写题：随机方块不重叠（Flutter）</a></li>
+<li><a href="#6-dart">Dart 语法与关键词扩展</a></li>
+<li><a href="#7-qa">面试问答速记（Q&amp;A）</a></li>
+<li><a href="#8-flutter">附录：同份笔试材料中的通用题目（非 Flutter 专向）</a></li>
+</ol>
+<blockquote>
+<p><strong>Pages 说明</strong>：GitHub 网页里预览 Markdown 的标题锚点规则与 <strong>MkDocs Material</strong> 生成的 <code>id</code> 不一致；文内目录与 §7.x 跳转已按 <strong>MkDocs 构建结果</strong> 书写，才能在 GitHub Pages 正文里点击生效。</p>
+</blockquote>
+<hr />
+<h2 id="1-statefulwidget">1. StatefulWidget 生命周期</h2>
+<h3 id="11">1.1 各阶段回调（按调用顺序理解）</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>回调</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建 State</td>
+<td><code>createState</code></td>
+<td><code>StatefulWidget</code> 被使用时立刻执行，用于创建对应的 <code>State</code>。</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td><code>initState</code></td>
+<td>给 <code>State</code> 成员赋初值；可发起异步请求，拿到数据后 <code>**setState</code>** 更新 UI。</td>
+</tr>
+<tr>
+<td>依赖变化</td>
+<td><code>didChangeDependencies</code></td>
+<td>当本 <code>State</code> 在 <code>build</code> 中依赖的 <code>**InheritedWidget**</code>（等）发生变化时会调用；主题、<code>Locale</code> 等变化也会走这里。</td>
+</tr>
+<tr>
+<td>构建</td>
+<td><code>build</code></td>
+<td>返回要渲染的子树；<strong>会被多次调用</strong>，只应做「描述 UI」的逻辑，避免副作用。</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td><code>reassemble</code></td>
+<td><strong>仅 debug</strong>：热重载（hot reload）时会调用，可放调试辅助代码。</td>
+</tr>
+<tr>
+<td>父级重建</td>
+<td><code>didUpdateWidget</code></td>
+<td>框架用 <code>Widget.canUpdate</code> 比较同一位置新旧节点；若 <strong>Key 与 runtimeType 都相同</strong> 则 <code>canUpdate</code> 为 <code>true</code>，随后会调 <code>didUpdateWidget</code>，<strong>之后一定会再 <code>build</code></strong>。</td>
+</tr>
+<tr>
+<td>暂时移出树</td>
+<td><code>deactivate</code></td>
+<td>从树上摘下时调用；若不再挂到别处，接下来会 <code>dispose</code>。</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td><code>dispose</code></td>
+<td>永久移除，释放控制器、<code>Animation</code>、<code>Stream</code> 订阅等资源。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-addpostframecallback">1.2 一帧绘制后的回调：<code>addPostFrameCallback</code></h3>
+<ul>
+<li>在当前帧 <strong>绘制完成后</strong> 执行一次，<strong>注册后不能取消</strong>，且 <strong>只回调一次</strong>。</li>
+<li>定义在 <code>**SchedulerBinding</code>**；由于 <code>WidgetsBinding</code> <code>**mixin WidgetsBinding on SchedulerBinding**</code>，两种写法等价思路：</li>
+</ul>
+<pre><code class="language-dart">SchedulerBinding.instance.addPostFrameCallback((_) {
+  // 首帧布局完成后再量尺寸、滚动到底部等
+});
+
+WidgetsBinding.instance.addPostFrameCallback((_) {
+  // 同上
+});
+</code></pre>
+<h3 id="13">1.3 生命周期归纳（四个大块）</h3>
+<ol>
+<li><strong>初始化</strong>：<code>createState</code> → <code>initState</code></li>
+<li><strong>首次进入树后的创建链路</strong>：<code>didChangeDependencies</code> → <code>build</code></li>
+<li><strong>再次触发 <code>build</code> 的常见原因</strong>：<code>setState</code>、<code>didChangeDependencies</code>、<code>didUpdateWidget</code>（以及父组件重建导致子 <code>build</code>）</li>
+<li><strong>销毁</strong>：<code>deactivate</code> → <code>dispose</code></li>
+</ol>
+<hr />
+<h2 id="2-inheritedwidget">2. InheritedWidget</h2>
+<h3 id="21">2.1 是什么</h3>
+<ul>
+<li><code>InheritedWidget</code> 是一种特殊的 <code>Widget</code>，在 <strong>子树向下</strong> 传递数据，<strong>不必层层构造函数传参</strong>。</li>
+<li>数据变化时，可 <code>**updateShouldNotify</code><strong> 决定是否通知依赖者，依赖方通过 <code>context.dependOnInheritedWidgetOfExactType&lt;T&gt;()</code> </strong>注册依赖<strong>，从而在数据变化时 </strong>自动重建**。</li>
+</ul>
+<h3 id="22">2.2 最小示例（与笔记一致）</h3>
+<pre><code class="language-dart">import 'package:flutter/material.dart';
+
+class MyData extends InheritedWidget {
+  const MyData({
+    super.key,
+    required this.counter,
+    required super.child,
+  });
+
+  final int counter;
+
+  static MyData? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType&lt;MyData&gt;();
+  }
+
+  @override
+  bool updateShouldNotify(MyData oldWidget) =&gt; counter != oldWidget.counter;
+}
+</code></pre>
+<h3 id="23">2.3 面试常追问</h3>
+<ul>
+<li><strong>与 <code>Provider</code> / <code>Riverpod</code> 的关系</strong>：状态管理库多在 <code>InheritedWidget</code>（或类似机制）之上封装 <strong>更新粒度、依赖收集、异步与测试</strong>。</li>
+<li><code>**Element</code> 与依赖**：<code>dependOnInheritedWidgetOfExactType</code> 会在 <code>Element</code> 上登记依赖，通知时精准重建相关子树。</li>
+</ul>
+<hr />
+<h2 id="3-key">3. Key 的类型与使用场景</h2>
+<h3 id="31">3.1 顶层分类</h3>
+<ul>
+<li><code>Key</code> 的常见子类：<code>**LocalKey</code>**、<code>**GlobalKey**</code>。</li>
+<li><code>LocalKey</code> 再分为：<code>ValueKey</code>、<code>ObjectKey</code>、<code>UniqueKey</code>。</li>
+</ul>
+<h3 id="32-localkey">3.2 LocalKey 三种</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>标识依据</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueKey</code></td>
+<td><strong>值相等</strong>（<code>==</code> / <code>hashCode</code>）</td>
+<td>列表项用稳定业务 id：<code>ValueKey(todo.id)</code></td>
+</tr>
+<tr>
+<td><code>ObjectKey</code></td>
+<td><strong>对象身份</strong>（引用同一实例）</td>
+<td>以「对象本身」区分身份时</td>
+</tr>
+<tr>
+<td><code>UniqueKey</code></td>
+<td><strong>每次 new 都不同</strong></td>
+<td>强制每次重建都是新实例（慎用，易抖动）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-globalkey">3.3 GlobalKey（补充）</h3>
+<ul>
+<li><strong>全局</strong>定位到某个 <code>Element</code> / <code>State</code>，可跨分支取 <code>State</code>、<code>context</code>，或拿 <code>RenderObject</code> 做测量。</li>
+<li>代价：打断局部复用、增加查找与维护成本；<strong>不要滥用</strong>。</li>
+</ul>
+<h3 id="34">3.4 列表示例</h3>
+<pre><code class="language-dart">ListView(
+  children: [
+    ListTile(key: ValueKey(1), title: const Text('Item 1')),
+    ListTile(key: ObjectKey(myObject), title: const Text('Item 2')),
+    ListTile(key: UniqueKey(), title: const Text('Item 3')),
+  ],
+);
+</code></pre>
+<hr />
+<h2 id="4-isolate">4. Isolate 与并发</h2>
+<h3 id="41">4.1 模型要点（面试高频）</h3>
+<ul>
+<li>Dart <strong>默认单线程事件循环</strong>；<code>Future</code> / <code>async</code> <strong>不</strong>等于多核并行。</li>
+<li><code>**Isolate</code><strong> 才是 </strong>多内存堆<strong> 的并行单元：</strong>不共享可变内存<strong>，靠 <code>**SendPort</code> / <code>ReceivePort</code></strong> 传消息（可序列化对象）。</li>
+<li><code>Isolate.spawn</code> 的入口必须是 <strong>顶层函数</strong> 或 <code>**static</code> 方法**（与截图笔记一致）。</li>
+</ul>
+<h3 id="42-spawn-isolate">4.2 最小 spawn 示例（主 Isolate 收消息）</h3>
+<pre><code class="language-dart">import 'dart:isolate';
+
+Future&lt;void&gt; main() async {
+  final receivePort = ReceivePort();
+
+  await Isolate.spawn(isolateEntry, receivePort.sendPort);
+
+  receivePort.listen((message) {
+    print('Received message from isolate: $message');
+  });
+}
+
+void isolateEntry(SendPort replyToMain) {
+  replyToMain.send('hello from worker');
+}
+</code></pre>
+<h3 id="43-future">4.3 双向通信思路（笔记中的「握手 + 单次请求 Future」）</h3>
+<ul>
+<li>Worker 启动后先把 <strong>自己的 <code>SendPort</code></strong> 发回主 Isolate（握手）。</li>
+<li>主 Isolate 用 <strong>临时 <code>ReceivePort</code></strong> 把「本次请求的回调 <code>SendPort</code>」随参数发给 Worker，从而把一次往返包成 <code>**Future**</code>（<code>receivePort.first</code>）。</li>
+</ul>
+<p>涉及 <code>**await for**</code>：对 <code>ReceivePort</code> 监听时，可按流式处理多条请求。</p>
+<hr />
+<h2 id="5-flutter">5. 手写题：随机方块不重叠（Flutter）</h2>
+<p><strong>题意</strong>：在 <strong>300×600</strong> 区域内放置 <strong>随机数量</strong> 的 <strong>50×50</strong> 正方形，<strong>互不重叠</strong>（可用 OC / Swift / Flutter 任一）。</p>
+<p><strong>思路摘要</strong>：</p>
+<ul>
+<li>若不要随机坐标，可用规则网格（如 <code>GridView</code>）直接铺满。</li>
+<li>随机坐标：在合法范围内随机 <code>(x, y)</code>，用 <code>Rect</code> 与已有矩形 <code>**overlaps</code>** 检测；重叠则重试，并对失败次数设上限避免死循环。</li>
+</ul>
+<pre><code class="language-dart">import 'dart:math';
+import 'package:flutter/material.dart';
+
+void main() =&gt; runApp(const MaterialApp(home: Scaffold(body: Center(child: NonOverlappingSquares()))));
+
+class NonOverlappingSquares extends StatefulWidget {
+  const NonOverlappingSquares({super.key});
+
+  @override
+  State&lt;NonOverlappingSquares&gt; createState() =&gt; _NonOverlappingSquaresState();
+}
+
+class _NonOverlappingSquaresState extends State&lt;NonOverlappingSquares&gt; {
+  final List&lt;Rect&gt; squarePositions = &lt;Rect&gt;[];
+  int overCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    final random = Random();
+    // 粗算最多约 12 * 6 = 72 个互不重叠的 50x50（依实现与随机性而定）
+    generateSquarePositions(random.nextInt(72));
+  }
+
+  void generateSquarePositions(int count) {
+    final random = Random();
+    squarePositions.clear();
+    overCount = 0;
+
+    while (squarePositions.length &lt; count) {
+      final x = random.nextDouble() * (300 - 50);
+      final y = random.nextDouble() * (600 - 50);
+      final rect = Rect.fromLTWH(x, y, 50, 50);
+
+      if (!checkOverlap(rect)) {
+        squarePositions.add(rect);
+      } else {
+        overCount += 1;
+        if (overCount &gt; count) break;
+      }
+    }
+
+    setState(() {});
+  }
+
+  bool checkOverlap(Rect rect) {
+    for (final existing in squarePositions) {
+      if (existing.overlaps(rect)) return true;
+    }
+    return false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 600,
+      color: Colors.white,
+      child: Stack(
+        children: [
+          for (final r in squarePositions)
+            Positioned(
+              left: r.left,
+              top: r.top,
+              child: Container(width: 50, height: 50, color: Colors.yellow),
+            ),
+        ],
+      ),
+    );
+  }
+}
+</code></pre>
+<hr />
+<h2 id="6-dart">6. Dart 语法与关键词扩展</h2>
+<p>下面按「上面笔记里出现或强相关」整理，方便背诵与串联。</p>
+<h3 id="61">6.1 异步</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>async</code></td>
+<td>标记函数体可用 <code>await</code>，返回值包装为 <code>Future</code>。</td>
+</tr>
+<tr>
+<td><code>async*</code></td>
+<td><strong>异步生成器</strong>：函数体可用 <code>await</code>，返回 <code>**Stream&lt;T&gt;</code><strong>；用 <code>yield</code> / <code>yield*</code> 向监听者产出事件（</strong>惰性**：通常在被 <code>listen</code> / <code>await for</code> 消费时才逐步执行到对应 <code>await</code> 之后）。</td>
+</tr>
+<tr>
+<td><code>yield</code></td>
+<td>在 <code>async*</code> 内向当前 <code>Stream</code> <strong>发送单个事件</strong>，发送后可在后续事件前 <code>await</code> 其它异步工作。</td>
+</tr>
+<tr>
+<td><code>yield*</code></td>
+<td><strong>顺序委托</strong>到另一个 <code>Stream</code>：先把子流的事件全部转发给监听者，子流结束后再继续执行当前 <code>async*</code> 函数后续代码。</td>
+</tr>
+<tr>
+<td><code>await</code></td>
+<td>等待 <code>Future</code>/<code>Stream</code> 事件（在异步函数内）。</td>
+</tr>
+<tr>
+<td><code>await for</code></td>
+<td>异步 for：遍历 <code>Stream</code>（如持续从 <code>ReceivePort</code> 收消息；也常与 <code>async*</code> 组合「读流再 yield 出去」）。</td>
+</tr>
+<tr>
+<td><code>Future&lt;T&gt;</code></td>
+<td>表示稍后完成的单次异步结果。</td>
+</tr>
+<tr>
+<td><code>Stream&lt;T&gt;</code></td>
+<td>表示随时间产生的一系列事件。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>与 <code>async</code> 的对比</strong>：<code>async</code> 对应「一次算完」的 <code>**Future</code>**；<code>async*</code> 对应「多次产出」的 <code>**Stream**</code>。</li>
+<li><strong>官方</strong>：异步生成器（<code>sync*</code>/<code>async*</code>、<code>yield</code>/<code>yield*</code>）见 Dart 语言指南 — Functions — Generators：<code>https://dart.dev/language/functions#generators</code></li>
+<li><strong>动手</strong>：本仓库 <code>flutter_interview_demo/lib/demos/async_star_yield_lab_page.dart</code>（首页入口「async<em> / yield / yield</em>」）。</li>
+</ul>
+<h3 id="62">6.2 面向对象与类型系统</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>class</code>、<code>extends</code></td>
+<td>类与单继承。</td>
+</tr>
+<tr>
+<td><code>implements</code></td>
+<td>实现接口（可多实现）。</td>
+</tr>
+<tr>
+<td><code>mixin ... on ...</code></td>
+<td>受限 mixin：只能混入在指定超类型子类型上（如 <code>WidgetsBinding on SchedulerBinding</code>）。</td>
+</tr>
+<tr>
+<td><code>super(...)</code></td>
+<td>调用父类构造 / 父成员。</td>
+</tr>
+<tr>
+<td><code>this.field</code> / 初始化列表</td>
+<td>构造器简写：<code>MyData({required this.counter})</code>。</td>
+</tr>
+<tr>
+<td><code>final</code></td>
+<td>运行期一次性赋值；常用于不可变字段、Widget 配置字段。</td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td>编译期常量；<code>const</code> 构造的 Widget 有助于减少重建成本。</td>
+</tr>
+<tr>
+<td><code>static</code></td>
+<td>属于类本身：<code>Isolate.spawn</code> 常用 <code>static</code> 顶层入口。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-null-safety">6.3 空安全（Null Safety）</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code> / <code>T?</code></td>
+<td>非空类型 / 可空类型。</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>断言非空（失败会运行时异常）。</td>
+</tr>
+<tr>
+<td><code>?.</code>、<code>??</code>、<code>??=</code></td>
+<td>可空调用、合并空值、空则赋值。</td>
+</tr>
+<tr>
+<td><code>required</code></td>
+<td>命名参数必须传入（常与 NNBD 一起用于构造器）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64">6.4 函数与集合</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=&gt;</code></td>
+<td>单行函数体 / 箭头表达式。</td>
+</tr>
+<tr>
+<td><code>_</code></td>
+<td>匿名参数占位：<code>(_, __) {}</code>。</td>
+</tr>
+<tr>
+<td><code>for-in</code> / collection <code>for</code></td>
+<td><code>for (final x in xs)</code>；UI 里常用 <code>[for (final r in rs) Widget(...)]</code>。</td>
+</tr>
+<tr>
+<td><code>List.generate</code></td>
+<td>按下标生成固定长度列表。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65">6.5 并发与底层库</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import 'dart:isolate';</code></td>
+<td><code>Isolate</code>、<code>SendPort</code>、<code>ReceivePort</code>。</td>
+</tr>
+<tr>
+<td><code>import 'dart:convert';</code></td>
+<td><code>json.encode</code> / <code>json.decode</code>。</td>
+</tr>
+<tr>
+<td><code>import 'dart:math';</code></td>
+<td><code>Random</code>、<code>Rect</code>（在 <code>dart:ui</code>/<code>vector_math</code> 概念上常配合 Flutter 几何）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="66-flutter-dart">6.6 Flutter 侧常见「看起来像 Dart 关键字」的概念</h3>
+<ul>
+<li><code>@override</code>：<strong>注解</strong>，标记重写，利于编译器检查。</li>
+<li><code>BuildContext</code>：元素树上的句柄，用于查找 <code>Theme</code>、<code>MediaQuery</code>、<code>InheritedWidget</code> 等。</li>
+<li><code>setState(() {})</code>：<code>State</code> 内触发当前 <code>Element</code> <strong>标记脏</strong>并在合适时机 <code>build</code>。</li>
+</ul>
+<hr />
+<h2 id="7-qa">7. 面试问答速记（Q&amp;A）</h2>
+<p>这部分用于沉淀「每次面试前/面试中临时问到的点」，主打<strong>短、准、可复习</strong>。</p>
+<h3 id="7x">7.x 快速跳转</h3>
+<ul>
+<li><a href="#71-cubit">7.1 Cubit 是怎么实现数据驱动刷新的？</a></li>
+<li><a href="#72-cubit-setstate-statelesswidget">7.2 用 Cubit 就必须写 <code>setState</code> 吗？能全用 <code>StatelessWidget</code> 吗？</a></li>
+<li><a href="#73-setstate">7.3 所有状态管理触发刷新，都会走 <code>setState</code> 这条线吗？</a></li>
+<li><a href="#74-buildcontext">7.4 BuildContext 是什么？</a></li>
+<li><a href="#75-contextdependoninheritedwidgetofexacttypet">7.5 <code>context.dependOnInheritedWidgetOfExactType&lt;T&gt;()</code> 会有性能问题吗？</a></li>
+<li><a href="#76-for-setstate">7.6 <code>for</code> 循环里写 <code>setState</code> 会执行多次重绘吗？</a></li>
+<li><a href="#77-flutter-xbit-app-mobile-v2">7.7 Flutter 项目模块化怎么理解？结合 <code>xbit-app-mobile-v2</code> 怎么讲</a></li>
+<li><a href="#78-flutterdart">7.8 Flutter/Dart 的事件循环与帧调度机制是什么？</a></li>
+<li><a href="#781-setstatebuild">7.8.1 一帧何时调度、与 <code>setState</code> / <code>build</code> 先后</a></li>
+<li><a href="#79-repaintboundary">7.9 <code>RepaintBoundary</code> 原理是什么？</a></li>
+<li><a href="#710-flutter-app">7.10 Flutter 怎么做性能优化？</a></li>
+<li><a href="#7101-listviewbuilder">7.10.1 <code>ListView.builder</code> 内部怎么优化列表？</a></li>
+<li><a href="#711-reassemble">7.11 <code>reassemble</code> 可以直接调用吗？</a></li>
+<li><a href="#712-flutter-platform-channel">7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？</a></li>
+<li><a href="#713-flutter">7.13 非 Flutter 面试官：观点不一致如何沟通（资深/架构视角）</a></li>
+<li><a href="#714-flutter">7.14 跨部门协作：Flutter「领地」与资源重复怎么办</a></li>
+<li><a href="#715-2026-04-23">7.15 面试复盘（2026-04-23，公司/轮次待补）</a></li>
+</ul>
+<h3 id="71-cubit">7.1 Cubit 是怎么实现数据驱动刷新的？</h3>
+<ul>
+<li><strong>核心链路</strong>：<code>emit(newState)</code> → 状态流（<code>Stream&lt;State&gt;</code>）发出新状态 → <code>BlocBuilder/BlocSelector</code> 订阅到变化 → 触发自身重建并用最新 <code>state</code> 再次 build。</li>
+<li><strong>关键点</strong>：你不需要业务里手写 <code>setState</code>，但 <code>BlocBuilder</code> 内部一定有“等价的标脏/重建机制”来驱动刷新。</li>
+</ul>
+<h3 id="72-cubit-setstate-statelesswidget">7.2 用 Cubit 就必须写 <code>setState</code> 吗？能全用 <code>StatelessWidget</code> 吗？</h3>
+<ul>
+<li><strong>不需要你写</strong>：Cubit/Bloc 的刷新通常由 <code>BlocBuilder</code> 等组件内部完成。</li>
+<li><strong>可以全用 <code>StatelessWidget</code></strong>：外层页面可以是 <code>StatelessWidget</code>，把需要刷新的局部用 <code>BlocBuilder/BlocSelector</code> 包起来；重建发生在这些订阅组件自身。</li>
+</ul>
+<h3 id="73-setstate">7.3 所有状态管理触发刷新，都会走 <code>setState</code> 这条线吗？</h3>
+<ul>
+<li>更严谨的说法：都会回到 Flutter 的本质——让某个 <code>Element</code> <strong>标记为 dirty</strong>，下一帧重新执行 <code>build</code>（以及按需 layout/paint）。</li>
+<li><code>setState</code> 是最直接的入口；很多状态管理库并不暴露 <code>setState</code>，但内部会用<strong>等价机制</strong>触发“标脏→重建”。</li>
+</ul>
+<h3 id="74-buildcontext">7.4 BuildContext 是什么？</h3>
+<ul>
+<li><strong>本质</strong>：<code>BuildContext</code> 是 “当前 widget 在树上的位置句柄”，底层就是对应 <code>Element</code> 的接口。</li>
+<li><strong>常用能力</strong>：</li>
+<li>向上查找并建立依赖：<code>dependOnInheritedWidgetOfExactType&lt;T&gt;()</code>（例如 <code>Theme.of(context)</code> 等）。</li>
+<li>只读取不建立依赖（各库 <code>read</code> 思路）：避免不必要的重建。</li>
+<li>导航/弹窗/拿 <code>ScaffoldMessenger</code> 等：依赖树上祖先组件能力。</li>
+<li><strong>常见坑</strong>：跨 <code>await</code> 使用 context 前先判断 <code>context.mounted</code>；<code>initState</code> 里不要做会建立依赖的查找（更适合 <code>didChangeDependencies</code> / 首帧回调）。</li>
+</ul>
+<h3 id="75-contextdependoninheritedwidgetofexacttypet">7.5 <code>context.dependOnInheritedWidgetOfExactType&lt;T&gt;()</code> 会有性能问题吗？</h3>
+<ul>
+<li><strong>查找成本通常不大</strong>（沿祖先链向上找），真正的性能风险在于：建立依赖后，<code>InheritedWidget</code> 更新会<strong>通知依赖者重建</strong>。</li>
+<li>常见踩坑：</li>
+<li>在很上层建立对“高频变化数据”的依赖 → 造成大范围重建。</li>
+<li><code>updateShouldNotify</code> 写得太宽（总返回 <code>true</code>） → 依赖者被无差别刷新。</li>
+<li>优化思路：拆粒度、局部订阅（<code>Selector/BlocSelector</code>）、精确实现 <code>updateShouldNotify</code>、需要一次性读取就用不建立依赖的方式。</li>
+</ul>
+<h3 id="76-for-setstate">7.6 <code>for</code> 循环里写 <code>setState</code> 会执行多次重绘吗？</h3>
+<ul>
+<li><strong>会多次调用 <code>setState</code></strong>，即多次“标记需要重建”；但<strong>不一定每次都立刻重绘</strong>。</li>
+<li>同一事件循环/同一帧内连续多次 <code>setState</code> 通常会在下一帧<strong>合并成一次 build</strong>（仍有额外调度开销）。</li>
+<li>如果循环中夹了 <code>await</code>/定时器/多次事件回调导致跨帧，就可能产生<strong>多次 build/多次绘制</strong>。</li>
+<li>实践建议：循环里先累积数据，循环结束后只 <code>setState</code> 一次；需要逐步更新则用动画/定时器/流并控制频率。</li>
+</ul>
+<h3 id="77-flutter-xbit-app-mobile-v2">7.7 Flutter 项目模块化怎么理解？结合 <code>xbit-app-mobile-v2</code> 怎么讲</h3>
+<ul>
+<li><strong>一句话结论</strong>：<code>xbit-app-mobile-v2</code> 属于<strong>单工程（single app）形态的模块化——通过目录分层 + barrel exports + 集中式 DI/路由/多环境入口</strong>来实现“可维护/可复用/可并行”的模块边界；业务域按 feature 概念存在，但没有拆成多 package 的 monorepo。</li>
+<li><strong>项目里的“模块化落点”</strong>：</li>
+<li><strong>核心能力集中</strong>：<code>lib/core/</code> 聚合数据访问（GraphQL/REST）、存储、服务、用例与 BLoC，并通过 <code>lib/core/core.dart</code> 统一 <code>export</code> 作为“核心模块出口”。</li>
+<li><strong>UI 组件体系</strong>：<code>lib/ui/</code> 类 design system（atoms/molecules/organisms/templates/pages）+ <code>ui/v1/</code> 兼容/迁移层，并通过 <code>lib/ui/ui.dart</code> 做统一出口。</li>
+<li><strong>路由集中注册</strong>：<code>lib/routes/</code> 用 <code>go_router</code> 统一组装（如 <code>lib/routes/router.dart</code>），路径常量集中在 <code>lib/routes/pages.dart</code>，避免字符串散落。</li>
+<li><strong>依赖注入集中组装</strong>：<code>get_it</code> 在 <code>lib/dependencies.dart</code> / <code>setupDependencies()</code> 集中注册 service/client/bloc，模块对外靠接口或统一出口暴露。</li>
+<li><strong>多环境模块化</strong>：<code>env/</code> 下 <code>.unstable/.staging/.production</code>，入口文件 <code>lib/main.&lt;env&gt;.dart</code> + <code>flutter_dotenv</code>（<code>lib/config/app_env.dart</code>）实现环境隔离。</li>
+<li><strong>面试加分点（说现状也说风险）</strong>：</li>
+<li>现状已经做到“工程组装点清晰”（路由/DI/env）与“UI 组件体系化”。</li>
+<li><strong>改进空间</strong>：存在 <code>core</code> 反向依赖 <code>ui/v1</code> 的耦合（例如 core utils 里 toast/导航），更理想是让 <strong>core 只依赖抽象接口</strong>，UI 提供实现并在 DI 注入，避免 <code>core↔ui</code> 双向依赖。</li>
+<li><strong>关键词</strong>：<code>模块边界</code> <code>目录分层</code> <code>barrel export</code> <code>go_router</code> <code>get_it</code> <code>core/ui 解耦</code> <code>依赖方向</code> <code>env/flavor</code></li>
+</ul>
+<h3 id="78-flutterdart">7.8 Flutter/Dart 的事件循环与帧调度机制是什么？（参考官方描述）</h3>
+<ul>
+<li><strong>一句话结论</strong>：Dart 的异步由 <strong>事件循环</strong>调度（microtask queue 优先于 event queue）；Flutter 在此之上用 <strong>SchedulerBinding</strong> 把 UI 更新组织成“帧”，并在每帧内按固定阶段驱动渲染流水线（layout/paint/composite/semantics），最后执行 post-frame 回调。</li>
+<li><strong>要点</strong>：</li>
+<li><strong>Dart microtask 优先</strong>：<code>scheduleMicrotask</code> 注册的回调会在其它异步事件（如 Timer）之前执行；microtask 用多了可能饿死 event queue（官方警告）。<br />
+  参考：<code>scheduleMicrotask</code>（Dart API）<code>https://api.dart.dev/stable/dart-async/scheduleMicrotask.html</code></li>
+<li><strong>帧回调分类（SchedulerBinding）</strong>：官方将帧内回调分为 transient / persistent / post-frame，并解释它们与 <code>onBeginFrame/onDrawFrame</code> 的关系。<br />
+  参考：<code>SchedulerBinding</code>（Flutter API）<code>https://docs.flutter.dev/flutter/scheduler/SchedulerBinding-mixin.html</code></li>
+<li><strong>addPostFrameCallback 的语义</strong>：回调在一帧结束后、渲染流水线 flush 之后执行；不主动请求新帧；只执行一次且不可取消。<br />
+  参考：<code>addPostFrameCallback</code>（Flutter API）<code>https://api.flutter.dev/flutter/scheduler/SchedulerBinding/addPostFrameCallback.html</code></li>
+<li><strong>渲染流水线阶段（drawFrame）</strong>：官方列出每帧包含 layout、compositing bits、paint、compositing、semantics、finalization 等阶段。<br />
+  参考：<code>RendererBinding.drawFrame</code>（Flutter API）<code>https://api.flutter.dev/flutter/rendering/RendererBinding/drawFrame.html</code></li>
+<li><strong>常见追问</strong>：</li>
+<li><strong>为什么要用 <code>addPostFrameCallback</code></strong>：拿尺寸/做滚动/依赖布局结果时，保证本帧渲染完成后再执行。</li>
+<li><code>**Future</code>/<code>async</code> 等于多线程吗**：不等；它们仍在同一 isolate 的事件循环上，真正并行靠 Isolate。</li>
+</ul>
+<h4 id="781-setstatebuild">7.8.1 一帧什么时候被「要」出来？和 <code>setState</code>、<code>build</code> 谁先谁后？</h4>
+<ul>
+<li><strong>先纠一个常见误解</strong>：不是「<code>**build</code> 跑完才触发一帧<strong>」。<code>**build</code> 是这一帧渲染流水线里的一环</strong>（在 <code>drawFrame</code> 的 <strong>build</strong> 阶段里执行），帧先被调度/进入绘制流程，才会轮到各 <code>Element</code> 的 <code>build</code>。</li>
+<li><strong>谁在「要帧」（schedule frame）？</strong>（多路合并，同一帧里可能同时满足多种原因）</li>
+<li><strong>显示器 vsync</strong>：周期性「该画下一屏了」，引擎侧会驱动 Flutter 走帧（空闲时也可能不每一拍都画，取决于是否有脏标记等）。</li>
+<li><strong>UI 标脏后请求重绘</strong>：例如 <code>setState</code> → <code>markNeedsBuild</code>；<code>RenderObject.markNeedsLayout</code> / <code>markNeedsPaint</code>；路由切换、<code>InheritedWidget</code> 通知依赖者等，最终常落到 <code>**SchedulerBinding.scheduleFrame()</code>**（若本帧已安排则可能不再重复排队，而是本帧内处理脏树）。</li>
+<li><strong>动画 ticker</strong>：<code>AnimationController</code> 等会按 tick <strong>持续要帧</strong>，直到停止。</li>
+<li><strong>其它</strong>：窗口尺寸变化、文本输入、部分平台通道回调、<code>Semantics</code> 更新等也可能间接触发「需要一帧」。</li>
+<li><code>**setState</code> 发生时到底怎样？**（面试按这个顺序说）</li>
+<li><strong>先同步执行</strong>你传入的回调（改字段在这里完成）。</li>
+<li>再 <code>**markNeedsBuild</code><strong>，把对应 <code>Element</code> 标脏，并在需要时 </strong>登记下一帧<strong>（与「回调是否已 return」强相关：</strong>return 之后不会立刻在同一同步栈里自动 <code>build</code>**）。</li>
+<li>等引擎/框架进入 <strong>某一帧的 build 阶段</strong>时，才对脏的 <code>Element</code> <strong>自上而下</strong>调用 <code>build</code>（可能一次帧里合并多次 <code>setState</code> 的结果，只 build 到稳定）。</li>
+<li><strong>所以不是二选一</strong>：既不是「<strong>只有</strong> <code>setState</code> 结束才触发帧」，也不是「<strong>必须</strong>等整棵子树所有 <code>build</code> 写完才叫一帧开始」——准确说是：<strong>先有帧调度/进入 <code>drawFrame</code>，再在帧内执行 build → layout → paint → composite → …</strong>。</li>
+<li><strong>典型场景覆盖</strong>：</li>
+<li><strong>同一事件里连续多次 <code>setState</code></strong>：通常 <strong>合并到同一帧的一次 build pass</strong>（仍算多次标脏，但最终呈现一帧结果）；不要在循环里无意义狂 <code>setState</code>。</li>
+<li><code>**await</code> 之后再 <code>setState</code><strong>：中间已让出事件循环，</strong>常见于下一事件/下一帧**才执行到 <code>setState</code> 回调；是否「跨帧」取决于调度时机，不要写「必须下一帧」的硬编码假设，用 <code>mounted</code> / <code>SchedulerBinding</code> 语义理解即可。</li>
+<li><strong>只在 <code>build</code> 里读同步数据</strong>：本帧 <code>build</code> 读到的应是<strong>本帧 build 开始前</strong>已提交的状态；不要在 <code>build</code> 里再 <code>setState</code> 造成同帧重入式循环。</li>
+<li><code>**addPostFrameCallback</code><strong>：排在 </strong>当前帧 pipeline（含 layout/paint）走完之后<strong>；</strong>不会**单独为此再「要一帧」，但若回调里又 <code>setState</code>，会再触发后续帧。</li>
+<li><strong>动画每帧</strong>：ticker 驱动 <strong>每帧都走</strong>（至少 build/layout/paint 中参与动画的部分更忙），与「用户点一次按钮才 <code>setState</code>」节奏不同。</li>
+<li><strong>更新时间</strong>：2026-04</li>
+<li><strong>关键词</strong>：<code>event loop</code> <code>microtask</code> <code>SchedulerBinding</code> <code>drawFrame</code> <code>addPostFrameCallback</code> <code>scheduleFrame</code> <code>markNeedsBuild</code></li>
+</ul>
+<h3 id="79-repaintboundary">7.9 <code>RepaintBoundary</code> 原理是什么？面试怎么讲</h3>
+<ul>
+<li><strong>一句话结论</strong>：<code>RepaintBoundary</code> 会在渲染树中插入一个 <strong>compositing boundary（合成边界）</strong>，把子树提升为<strong>独立的 layer</strong>；当子树发生重绘时，重绘会尽量<strong>局部化</strong>在该 layer 内，避免整片 UI 跟着 repaint。</li>
+<li><strong>它解决的问题</strong>：</li>
+<li>Flutter 的绘制是从 <code>RenderObject</code> 生成 layer tree；当某个节点 <code>markNeedsPaint</code>，重绘可能向上影响更大范围。</li>
+<li><code>RepaintBoundary</code> 把一块 UI 的“绘制影响范围”切开，<strong>减少 repaint 的扩散</strong>（尤其是动画/频繁变化区域叠在大静态背景之上时）。</li>
+<li><strong>原理要点（抓住 3 句话）</strong>：</li>
+<li><code>RepaintBoundary</code> 对应 <code>RenderRepaintBoundary</code>，会让该节点成为 <strong>layer 的边界</strong>（独立 <code>Layer</code>，通常是 <code>OffsetLayer</code> 一类），框架在 <code>paint</code> 阶段会以它为单位生成/复用 layer。</li>
+<li>子树发生 repaint 时，理想情况下只需要更新该边界内的 layer（以及必要的合成），<strong>不用让父节点整块重新 paint</strong>。</li>
+<li>它优化的是 <strong>paint/compositing</strong> 成本，不直接优化 <strong>build/layout</strong>（build 还是会跑，layout dirty 也一样会向上影响）。</li>
+<li><strong>什么时候用（高频面试场景）</strong>：</li>
+<li><strong>高频动画/倒计时/进度条</strong> 覆盖在复杂静态背景上：把高频区域包进 <code>RepaintBoundary</code>。</li>
+<li><strong>列表复杂 item</strong> 中只有局部在动：给局部动的子树加边界，避免整行/整屏 repaint。</li>
+<li><strong>副作用与误区（加分点）</strong>：</li>
+<li><strong>不是越多越好</strong>：layer 变多会增加合成开销与内存占用；某些场景还可能影响 GPU 合成。</li>
+<li><strong>它不等于“减少 rebuild”</strong>：要减少 rebuild 用 <code>const</code>、拆 widget、<code>Selector/BlocSelector</code> 等；<code>RepaintBoundary</code> 主要管 paint。</li>
+<li>是否收益要用工具验证：看 DevTools 的 repaint 统计/性能时间线（以数据为准）。</li>
+<li><strong>更新时间</strong>：2026-04</li>
+<li><strong>关键词</strong>：<code>RepaintBoundary</code> <code>RenderRepaintBoundary</code> <code>layer tree</code> <code>paint</code> <code>compositing boundary</code></li>
+</ul>
+<h3 id="710-flutter-app">7.10 Flutter 怎么做性能优化？（结合项目《App性能分析》查漏补缺）</h3>
+<ul>
+<li><strong>一句话结论</strong>：Flutter 性能优化不要“凭感觉改”，核心是围绕 <strong>FPS/Jank 的根因（CPU 过载 vs GPU 过载）</strong> 做定位：先用 DevTools/Timeline 找到掉帧发生在哪一帧、是哪段耗时（build/layout/paint 或业务方法），再用“减少工作量/缩小影响范围/拆帧与并行”三板斧去改。</li>
+<li><strong>先讲指标与根因（面试开场）</strong>：</li>
+<li><strong>Jank 两大类原因</strong>（项目文档结论）：<ul>
+<li><strong>CPU</strong>：UI 绘制前的任务太重（同步计算、JSON/格式化、埋点、复杂初始化等）</li>
+<li><strong>GPU</strong>：页面过于复杂/层级深，渲染耗时或触发不必要的 repaint</li>
+</ul>
+</li>
+<li><strong>定位步骤（你做过什么）</strong>：</li>
+<li><strong>看帧耗时</strong>：在 DevTools Performance/Timeline 里找掉帧帧，确认是 build/layout/paint 哪块超预算。</li>
+<li><strong>看页面初始化</strong>：例如文档以某页面为例，<code>initState</code> 曾占用单帧约 36%（6.1/16.67ms），优化后关注第二帧是否仍丢帧，并继续找“方法耗时”。</li>
+<li><strong>CPU 侧优化（减少主线程工作量）</strong>：</li>
+<li><strong>延迟非必要工作</strong>：埋点/日志等可延迟到首帧后几帧执行（<code>addPostFrameCallback</code>/延时），或放到后台任务队列顺序执行（避免首帧拥塞）。</li>
+<li><strong>Isolate/compute</strong>：CPU 密集型（如 JSON → Model、大量计算）放到 isolate/<code>compute</code>。</li>
+<li><strong>格式化/解析选择</strong>：金额格式化用 <code>intl/NumberFormat</code>（避免自写低效逻辑）。</li>
+<li><strong>GPU/渲染侧优化（减少 paint/compositing 压力）</strong>：</li>
+<li><strong>降低页面复杂度与嵌套</strong>：减少重型 widget、避免无意义层级。</li>
+<li><strong>必要时用 <code>RepaintBoundary</code></strong>：把高频变化区域与大静态背景隔离，减少 repaint 扩散（见 7.9）。</li>
+<li><strong>减少 build 次数 / 缩小刷新范围（项目文档重点）</strong>：</li>
+<li><code>**build()</code> 保持 Clean**：build 可能被多次调用，不能有不可预期副作用。</li>
+<li><strong>避免大范围 <code>setState</code></strong>：把需要刷新的小块抽成更小的 <code>StatefulWidget</code>，缩小重建范围。</li>
+<li><strong>可变组件下沉到叶子节点</strong>：让上层尽量稳定，只让最小子树变化。</li>
+<li><strong>优先 <code>const</code></strong>：不变的 widget 用 <code>const</code>，减少重建成本。</li>
+</ul>
+<h4 id="7101-listviewbuilder">7.10.1 <code>ListView.builder</code> 内部怎么优化列表？和「列表卡顿」是什么关系？</h4>
+<ul>
+<li><strong>属于哪类优化</strong>：长列表是典型的 <strong>UI 卡顿 / 掉帧</strong> 来源之一——根因常在 <strong>单帧内 build/layout 过重</strong>（CPU）或 <strong>子树过复杂导致 paint 贵</strong>（GPU）。<code>ListView.builder</code> 解决的是 <strong>「不要一次性为全量数据建整棵子树」</strong>，属于 <strong>缩小每帧工作量 + 控制内存</strong> 的列表专项优化，应和 7.10 里「缩小刷新范围 / 减少 build」一起看。</li>
+<li><strong>和 <code>ListView(children: [...])</code> 的差别（面试抓这句）</strong>：</li>
+<li><code>**ListView</code> + 固定 <code>children</code><strong>：会在布局阶段</strong>为列表里每一项都创建子 Widget<strong>（数据上千就上千个 <code>Element</code>），首帧/滚动前就可能 </strong>CPU 爆表 + 内存暴涨<strong>，极易 </strong>首屏卡死**。</li>
+<li><code>**ListView.builder</code><strong>：底层走 <code>**SliverChildBuilderDelegate**</code>（与 <code>GridView.builder</code> 同类），</strong>只对「视口附近 + cacheExtent」内的 index 调用 <code>itemBuilder</code><strong>；滑出视口的子项对应的 <code>Element</code> 可被</strong>回收复用<strong>给新的 index（滑动窗口），从而 </strong>build/layout 的对象数量与列表总长度解耦**。</li>
+<li><strong>内部机制（说 4 点够）</strong>：</li>
+<li><strong>懒构建</strong>：<code>itemBuilder(context, index)</code> <strong>按需</strong>调用，不在首帧一次性构建全长。</li>
+<li><strong>视口驱动</strong>：与 <code>**Viewport</code> + <code>Scrollable</code>** 协同，只关心当前滚动位置上下窗口内的子 sliver。</li>
+<li><code>**cacheExtent**</code>：在视口外多预建/保留一小段，减少快速滑动时白块；<strong>过大</strong>会反向增加内存与构建压力，要取舍。</li>
+<li><strong>复用</strong>：同一套 slot 上替换不同 index 的子 widget 时，依赖 <code>**Key</code>（尤其 <code>ValueKey</code>/<code>ObjectKey</code>）<strong> 保持状态正确；<code>itemExtent</code> 固定高度时框架可</strong>跳过部分子项主轴测量**，进一步省 layout 成本。</li>
+<li><code>**cacheExtent</code> 是啥意思？（单位：逻辑像素）**  </li>
+<li><strong>视口（viewport）</strong>：屏幕上当前「能看见」的那一段列表区域。  </li>
+<li><code>**cacheExtent</code><strong>：在视口的 </strong>上方 + 下方各多延伸一段距离<strong>（默认约 </strong>250dp<strong> 量级，以文档为准），</strong>这段延伸区里的 item 也会提前 build/layout**（仍算懒加载，只是「可见窗口」比肉眼所见更大一圈）。  </li>
+<li><strong>目的</strong>：快速惯性滑动时，下一屏内容已经建好，<strong>减少露白 / 空白闪一下</strong>。  </li>
+<li><strong>代价</strong>：窗口越大，<strong>同时存在的子项越多</strong> → 更多 <strong>CPU（build/layout）</strong> 与 <strong>内存</strong>；设成 <code>0</code> 或很小可省资源，但猛滑更容易空白。  </li>
+<li><strong>面试一句</strong>：在「流畅」与「内存/首屏压力」之间做 <strong>预渲染带宽</strong> 的取舍。</li>
+<li><code>**itemExtent</code> 是啥意思？**  </li>
+<li>仅当列表每一项在 <strong>滚动主轴方向上的尺寸都相同</strong> 时才有意义（竖向 <code>ListView</code> 即 <strong>每条行高固定</strong>）。  </li>
+<li>你告诉框架：<strong>每一行高度就是这么多逻辑像素</strong>，框架在算滚动偏移、跳转到某 index、布置子项时，可以走 <strong>固定步长</strong> 的优化路径，<strong>少做「先量每个子项多高」这类动态测量</strong>（大列表滚动/定位时更省）。  </li>
+<li><strong>注意</strong>：若实际 cell 高度与 <code>itemExtent</code> <strong>不一致</strong>，会出现 <strong>布局裁切/重叠/异常</strong>，只适合 <strong>真正等高行</strong>（或 <code>prototypeItem</code> 一类 API 的变体场景以文档为准）。  </li>
+<li><strong>和 <code>itemBuilder</code> 里写死 <code>SizedBox(height: 72)</code> 的差别</strong>：死高只是 widget 约束；<code>**itemExtent</code> 是把「主轴子项尺寸」告诉 <code>ScrollView</code> 这一层<strong>，让 </strong>滚动与 sliver 布局**也能用上「等高」这一事实。</li>
+<li><strong>仍可能卡的情况（别神话 builder）</strong>：<code>itemBuilder</code> 里每个 cell <strong>本身太重</strong>（大图未缩放、复杂嵌套、在 build 里做重计算）照样掉帧——需要再配合 <code>**const</code> 拆分、<code>RepaintBoundary</code>、图片 <code>cacheWidth/cacheHeight</code>、异步/缓存** 等。</li>
+<li><strong>参考</strong>：<code>ListView.builder</code> <code>https://api.flutter.dev/flutter/widgets/ListView/ListView.builder.html</code></li>
+<li><strong>动手</strong>：<code>flutter_interview_demo/lib/demos/list_item_extent_lab_page.dart</code>（三个 Tab：等高 + <code>itemExtent</code>、等高不写、<code>itemExtent</code> 与真实行高不一致看溢出）。</li>
+<li><strong>关键词补充</strong>：<code>SliverChildBuilderDelegate</code> <code>Viewport</code> <code>cacheExtent</code> <code>itemExtent</code> <code>懒加载</code></li>
+<li><strong>动画与重建（隔离可变/不可变）</strong>：</li>
+<li>动画场景要把“不会变的外壳”（如 <code>GestureDetector</code> 等）与“会变的内容”拆开。</li>
+<li>内容类型一致但数据变动时，合理使用 <code>ValueKey</code>；也可考虑 <code>AnimatedSwitcher</code>/<code>PageView</code>/<code>ListView.builder</code> + 定时器实现轮播，并缓存可复用子 widget。</li>
+<li><strong>函数 Widget vs StatelessWidget（项目文档结论）</strong>：</li>
+<li>用函数返回 widget 容易<strong>错过框架复用优化</strong>，也不利于隔离可变/不可变区域。</li>
+<li>抽成 <code>StatelessWidget</code>（或更小 widget）提升复用、可读性，并可与状态管理配合更清晰。</li>
+<li><strong>图片内存专项（项目文档给了量化结果）</strong>：</li>
+<li>使用 <code>cacheWidth/cacheHeight</code> 按目标显示尺寸解码缩放，能显著降低内存占用（文档示例：图片内存从约 36MB 降到约 6MB，降幅 ~80%；App 总内存也有下降）。</li>
+<li>关注磁盘缓存策略：只缓存原图仍需 decode；可评估缓存“目标尺寸图”的策略（按业务取舍）。</li>
+<li><strong>状态管理（UI = f(state)）</strong>：</li>
+<li>页面要有清晰的数据流（单向数据流），共享状态上提；复杂页面刷新控制在最小范围内（Selector/拆 widget）。</li>
+<li><strong>其它稳定性/性能习惯（查漏补缺清单）</strong>：</li>
+<li>生命周期里及时释放：Stream/Controller/监听在 <code>dispose</code> 里关闭。</li>
+<li><code>mounted</code> 判断：异步回调更新 UI 前先判断 <code>mounted</code>。</li>
+<li>大对象及时清理：页面关闭时可手动清空大 List/Map。</li>
+<li>资源压缩：安装包内图片资源压缩后再用。</li>
+<li>开启静态检查：启用 <code>flutter_lints</code> 规范化。</li>
+<li><strong>更新时间</strong>：2026-04</li>
+<li><strong>关键词</strong>：<code>DevTools</code> <code>FPS</code> <code>Jank</code> <code>build clean</code> <code>setState scope</code> <code>const</code> <code>RepaintBoundary</code> <code>cacheWidth</code> <code>cacheHeight</code> <code>Isolate</code> <code>compute</code> <code>ListView.builder</code> <code>Viewport</code> <code>cacheExtent</code></li>
+</ul>
+<h3 id="711-reassemble">7.11 <code>reassemble</code> 可以直接调用吗？</h3>
+<ul>
+<li><strong>一句话结论</strong>：<strong>没有</strong>面向业务代码的“单独公开 API”让你像 <code>setState()</code> 一样随时调用 <code>reassemble()</code>；它是 <code>State</code> 的<strong>生命周期回调</strong>，由框架在 <strong>debug 模式热重载（hot reload）</strong> 时触发。</li>
+<li>官方语义参考：<code>State.reassemble</code> <code>https://api.flutter.dev/flutter/widgets/State/reassemble.html</code></li>
+<li><strong>典型使用场景（解决什么问题）</strong>：</li>
+<li><strong>热重载后需要“对齐调试状态”</strong>：例如你在 debug 里维护了计数器、开关、mock 数据源、临时缓存；热重载不会走 <code>initState</code>，但会走 <code>reassemble</code>，适合把这类 <strong>debug-only 状态</strong>重置到一致。</li>
+<li><strong>热重载后需要重新挂接/校验 debug 工具</strong>：比如重新注册某些只在 debug 生效的监听器、打印关键配置、断言某些不变量（注意别做重 IO）。</li>
+<li><strong>热重载后需要刷新“非 Widget 树状态”但又不适合放 <code>build</code></strong>：例如某些纯 Dart 单例/缓存（仅 debug）在 hot reload 后应清空，避免“代码已更新但内存还是旧对象”的错觉。</li>
+<li><strong>不该用它解决什么（常见误区）</strong>：</li>
+<li><strong>不要当业务刷新入口</strong>：正常 UI 更新用 <code>setState</code>/状态管理；需要首帧后执行用 <code>addPostFrameCallback</code>；需要重新创建子树用 <code>Key</code>/路由替换。</li>
+<li><strong>不要在 <code>reassemble</code> 里做重活</strong>：它发生在热重载链路里，过重逻辑会让你误以为“热重载卡/Flutter 慢”。</li>
+<li><strong>不要依赖它在 Release/Profile 稳定触发</strong>：它是 <strong>debug/hot reload 语义</strong>，不能替代 <code>initState</code>/<code>didChangeDependencies</code>。</li>
+<li><strong>要点</strong>：</li>
+<li>你在 <code>State</code> 里 <code>@override void reassemble()</code>，用于热重载后做一些 <strong>debug 辅助检查</strong>（例如重置某些 debug 状态、打印对比）。</li>
+<li><strong>Release/Profile</strong> 里不要依赖它做业务逻辑：它不会像 <code>initState</code> 那样稳定出现。</li>
+<li>如果你想“手动触发一次类似热重载后的清理/重建”，通常用 <code>**setState</code> / 状态管理刷新 / 重建子树（Key）/ 重新创建页面路由** 等方式，而不是调用 <code>reassemble</code>。</li>
+<li><strong>常见追问</strong>：</li>
+<li><strong>热重启（hot restart）会走 <code>reassemble</code> 吗</strong>：更接近“重新启动应用”，不等价于 hot reload 的那套 <code>reassemble</code> 语义；面试别混用概念。</li>
+<li><strong>再细一层：先纠正「重启」这个词</strong>（很多人卡在这里）：</li>
+<li><code>**reassemble</code> 主要绑定的是「热重载 hot reload」<strong>（IDE 里保存触发的 reload、<code>r</code> 等）：</strong>同一个 <code>State</code> 对象往往还在<strong>，字段里仍是</strong>热重载前的内存值<strong>；但你的</strong>源码默认值/逻辑**可能已经改了，于是出现「代码看着对了，运行表现却像旧的」。</li>
+<li><strong>热重启 hot restart / 杀进程冷启动</strong>：通常会重新跑 <code>main()</code>、重建 <code>Element/State</code>，<strong>更该靠 <code>initState</code> / <code>dispose</code> / DI 注册</strong> 来建立/释放资源；<strong>不要指望用 <code>reassemble</code> 替代这一套</strong>——它的设计目的不是「每次启动帮你对齐」。</li>
+<li><strong>「对齐调试状态」到底在对齐什么？（用一句话 + 三个具象例子）</strong>：</li>
+<li><strong>一句话</strong>：把「<strong>还在内存里的旧调试状态</strong>」拉回到和你<strong>刚改完的代码/默认假设</strong>一致，减少热重载带来的<strong>假 bug</strong>。</li>
+<li><strong>例子 1 — 你改了字段初始值，但热重载不会回填</strong>：源码里把 <code>_showDebugBanner</code> 默认从 <code>true</code> 改成 <code>false</code>，热重载后 <strong>State 里仍是 <code>true</code></strong>（因为没重新 <code>initState</code>）。在 <code>reassemble</code> 里 <code>setState(() =&gt; _showDebugBanner = false)</code> 或重置为「当前源码约定的 debug 初值」，界面才和预期一致。</li>
+<li><strong>例子 2 — 全局单例 / static / 顶层变量</strong>：<code>static final _cache = &lt;String, dynamic&gt;{};</code> 或 <code>GetIt</code> 里某个 debug 实现，热重载后<strong>对象还在</strong>，里面缓存的还是旧结构。<code>reassemble</code> 里 <code>assert</code> 包一层，只在 debug 清空或换成新 mock，避免你对着「旧缓存」调半天。</li>
+<li><strong>例子 3 — 只用于调试的监听器/定时器</strong>：热重载后可能留下<strong>旧闭包</strong>仍指向旧逻辑；在 <code>reassemble</code> 里取消再注册（要非常克制，别和正式 <code>dispose</code> 职责打架），或至少打日志确认当前挂的是哪一版回调。</li>
+<li><strong>对我写代码有啥实际用处？（诚实版）</strong>：</li>
+<li><strong>大多数业务页面一辈子不用写 <code>reassemble</code></strong>：<code>setState</code>、状态管理、<code>initState</code>/<code>dispose</code> 足够。</li>
+<li><strong>真正有用的时候</strong>：你经常在 <strong>hot reload</strong> 下调试，且页面/模块里混了 <strong>static、单例、debug 开关、mock 缓存</strong> 这类「<strong>不在 Widget 字段里、却会影响表现</strong>」的东西；这时 <code>reassemble</code> 是一个<strong>小而明确的钩子</strong>：热重载完<strong>补一刀</strong>，把调试环境拉回「和当前代码一致」。</li>
+<li><strong>实现习惯</strong>：<code>reassemble</code> 里只做 <strong>debug 且轻量</strong> 的事；用 <code>assert(() { ...; return true; }());</code> 包起来，release 编译会裁掉，避免误伤线上语义。</li>
+<li><strong>更新时间</strong>：2026-04</li>
+<li><strong>关键词</strong>：<code>reassemble</code> <code>hot reload</code> <code>State lifecycle</code> <code>debug</code></li>
+</ul>
+<h3 id="712-flutter-platform-channel">7.12 Flutter 与原生交互：Platform Channel 有哪些？还有哪些方式？</h3>
+<ul>
+<li><strong>一句话结论</strong>：Dart 与 Android/iOS <strong>默认不在同一套语言/ABI 里直接互相调函数</strong>；官方通用桥梁是 <code>**BinaryMessenger</code> + 编解码器（codec）<strong> 上叠出来的 <code>**MethodChannel</code> / <code>BasicMessageChannel</code> / <code>EventChannel</code></strong>。业务侧常用 <strong>Plugin（插件）</strong>把这些注册逻辑封装好；类型安全可再上 <strong>Pigeon（代码生成）</strong>。</li>
+<li><strong>三类 Platform Channel（记名字 + 用途）</strong>：</li>
+<li><code>**MethodChannel</code><strong>：</strong>一问一答**式异步调用。Dart <code>invokeMethod</code> → <code>Future</code>；原生侧 <code>setMethodCallHandler</code> 根据 <code>method</code> 字符串分发，结果再通过 messenger 回传。适合「调一次原生能力、拿结果/异常」。</li>
+<li><code>**EventChannel</code><strong>：</strong>原生 → Dart 的持续事件流**（典型：传感器、电量、蓝牙状态）。Dart 侧 <code>receiveBroadcastStream()</code> 得到 <code>Stream</code>；原生侧在 <code>StreamHandler</code> 里 <code>onListen</code> / <code>onCancel</code> 管理订阅生命周期。</li>
+<li><code>**BasicMessageChannel</code><strong>：</strong>双向传消息<strong>，不强制「method 名」模型；可配 <code>**StandardMessageCodec</code> / <code>JSONMessageCodec</code> / 自定义 <code>MessageCodec</code></strong>（含二进制）。适合自定义协议、低层或要与非 Flutter 引擎侧通信的场景。</li>
+<li><strong>常见追问：只有 <code>BasicMessageChannel</code> 是双向的吗？</strong>  </li>
+<li><strong>不是</strong>。<code>**MethodChannel</code> 也支持双向<strong>：Dart <code>invokeMethod</code> 调原生；Dart 侧 <code>setMethodCallHandler</code> + 原生侧 <code>invokeMethod</code>（各端 API 名以文档为准）可实现 </strong>原生 → Dart**。  </li>
+<li><code>**EventChannel</code><strong> 按常见用法是 </strong>原生 → Dart 的持续事件<strong>（<code>Stream</code>），</strong>不强调** Dart 沿同一条 API 往原生「推流」；反向控制往往另开 <code>MethodChannel</code> 等。  </li>
+<li><code>**BasicMessageChannel</code><strong> 是 </strong>API 上最对称** 的「两端都能 <code>send</code>」模型；面试别背成「只有它能双向」。</li>
+<li><strong>具体怎么实现（面试说链路即可）</strong>：</li>
+<li><strong>约定 channel 名</strong>（字符串，全局唯一习惯用 <code>包名/能力</code> 前缀，避免冲突）。</li>
+<li><strong>同一条 messenger</strong>：<code>WidgetsFlutterBinding.ensureInitialized()</code> 后拿到的引擎 <code>**BinaryMessenger</code>**（Dart 里常通过 <code>MethodChannel(name, ...)</code> 间接使用），Android 侧 <code>flutterEngine.dartExecutor.binaryMessenger</code>，iOS 侧 <code>FlutterBinaryMessenger</code>（如 <code>FlutterViewController</code>）。</li>
+<li><strong>编解码</strong>：默认 <code>**StandardMethodCodec</code> / <code>StandardMessageCodec</code><strong>，把 Dart 的 <code>null/bool/int/double/String/Uint8List/List/Map</code> 等与平台侧类型互转；传复杂对象要么拆成 Map，要么走 </strong>JSON 字符串<strong>、要么 </strong>自定义 codec**。</li>
+<li><strong>线程/队列</strong>：Android 上 handler 线程、iOS 上主线程/约定队列要与 Flutter 文档一致（插件里常见 <strong>切主线程</strong>再回调）；避免在原生回调里做长阻塞。</li>
+<li><strong>插件形态</strong>：<code>android/src/main/.../XxxPlugin.kt</code> + <code>ios/Classes/XxxPlugin.m/swift</code> 在 <code>onAttachedToEngine</code> 里  <code>**registrar.messenger()</code> 上 <code>addMethodCallDelegate</code> / <code>setMethodCallHandler</code>**，与 Dart 侧 <code>static final _ch = MethodChannel('...')</code> 对齐。</li>
+<li><strong>官方入口</strong>：Writing custom platform code：<code>https://docs.flutter.dev/platform-integration/platform-channels</code></li>
+<li><strong>除了 Platform Channel，还有哪些「和原生打交道」的方式？</strong>（按场景选）</li>
+<li><code>**dart:ffi</code>（FFI）<strong>：Dart </strong>直接调用 C ABI<strong>（<code>.so</code> / <code>.dylib</code> / 静态链接库），绕过 channel 的编解码与异步调度，适合 </strong>高性能、同步数学/编解码<strong>；要自己管 </strong>内存、线程安全、符号导出<strong>，移动端还要注意 </strong>架构 fat binary / 签名**。</li>
+<li><strong>Pigeon</strong>：在 Dart/Java/Kotlin/ObjC/Swift 之间 <strong>生成类型安全的 channel 封装</strong>，底层仍是 channel，但减少手写字符串 method 名与参数拼错。</li>
+<li><strong>Platform View（<code>AndroidView</code> / <code>UiKitView</code>）</strong>：把 <strong>整段原生 UI</strong> 嵌进 Flutter 树（地图、WebView 老方案等）；与「传数据」不同维，底层仍大量依赖 <strong>texture / hybrid composition</strong> 等与引擎协作机制（面试可说「不等价于 MethodChannel，但常一起出现」）。</li>
+<li><strong>Add-to-app（Flutter 模块嵌现有 App）</strong>：工程形态（<code>FlutterEngine</code> 由原生持有、路由与生命周期由宿主控制），<strong>不替代</strong> channel，只是原生侧初始化 Flutter 的方式不同。</li>
+<li><strong>只走系统能力、不经手写 channel</strong>：例如 <strong>Deep Link / Universal Link</strong>、系统 <strong>Share Sheet</strong>、<strong>Push（FCM/APNs）</strong> 等，往往通过 <strong>已有官方或三方 plugin</strong>（其内部仍多为 channel/ffi）。</li>
+<li><strong>Web / Desktop</strong>：另有 <strong>dart:js_interop</strong>、<code>**MethodChannel</code> 对宿主窗口** 等，与移动端「双端 Kotlin/Swift」叙述类似但宿主不同。</li>
+<li><strong>更新时间</strong>：2026-04</li>
+<li><strong>关键词</strong>：<code>MethodChannel</code> <code>EventChannel</code> <code>BasicMessageChannel</code> <code>BinaryMessenger</code> <code>codec</code> <code>Plugin</code> <code>Pigeon</code> <code>dart:ffi</code> <code>PlatformView</code> <code>add-to-app</code></li>
+</ul>
+<h3 id="713-flutter">7.13 非 Flutter 面试官：观点不一致如何沟通（资深/架构视角）</h3>
+<ul>
+<li><strong>一句话结论</strong>：把分歧从「谁对谁错」转成「目标/约束/风险/验证」四件事；用<strong>可验证结论</strong>（数据、里程碑、官方机制）建立信任，而不是堆术语。</li>
+<li><strong>常见背景</strong>：公司缺专职 Flutter 岗时，面试官往往是 <strong>客户端负责人/平台负责人/业务技术负责人</strong>——他们更熟原生、工程流程或业务指标，对 Flutter 细节不熟很正常。</li>
+<li><strong>沟通模板（30 秒版）</strong>：</li>
+<li><strong>对齐目标</strong>：我们要优化的是「首屏/内存/崩溃率/交付周期」里的哪一个？优先级谁拍板？</li>
+<li><strong>讲约束</strong>：团队现状（人力、历史包袱、发版节奏、合规）决定方案边界。</li>
+<li><strong>给方案分层</strong>：A 方案（快上线）/ B 方案（中期还债）/ C 方案（长期架构）各有什么成本与风险。</li>
+<li><strong>把分歧翻译成风险</strong>：例如「全量重写 vs 渐进迁移」对应的是交付风险、回归成本、培训成本。</li>
+<li><strong>邀请验证</strong>：给一个 <strong>1～2 天可完成的 POC/对比数据</strong>（启动耗时、包体、FPS、CI 耗时），用结果收口争议。</li>
+<li><strong>当对方观点和你不一致时</strong>（不要硬顶）：</li>
+<li>先复述对方关注点：<strong>“我理解你担心的是 X（成本/风险/可控性）”</strong>。</li>
+<li>再补：<strong>“我这边建议用 Y 方式降低 X，理由是 Z（数据/官方机制/过往踩坑）”</strong>。</li>
+<li>若仍不一致：<strong>“我们可以把决策点收敛成一个可量化指标，先小范围试点再扩面”</strong>。</li>
+<li><strong>关键词</strong>：<code>stakeholder</code> <code>风险对齐</code> <code>POC</code> <code>可验证指标</code> <code>渐进迁移</code> <code>官方文档背书</code></li>
+</ul>
+<h3 id="714-flutter">7.14 跨部门协作：Flutter「领地」与资源重复怎么办</h3>
+<ul>
+<li><strong>一句话结论</strong>：用 <strong>单一事实来源（owner + RFC + 里程碑）</strong> 解决信息不同步；重复投入上升为 <strong>资源与风险问题</strong> 交给领导裁决，但你要带着方案去要决策，而不是只抱怨。</li>
+<li><strong>你原回答的优点</strong>：强调「信息不同步」「中途插入浪费资源」——这在工程管理上是成立的。</li>
+<li><strong>建议补一句更“加分”的收口</strong>：</li>
+<li><strong>先内部对齐</strong>：拉齐「Flutter 模块边界 / 路由与发布 / 质量门禁（lint、单测、灰度）」写成一页 RFC，明确 <strong>Owner</strong> 与 <strong>接口契约</strong>。</li>
+<li><strong>再升级决策</strong>：若平级部门并行推进，提出 <strong>二选一</strong>：合并到一个 backlog；或拆域（A 团队做交易、B 团队做资产）避免双写同一层。</li>
+<li><strong>对领导的话术</strong>：<strong>“重复建设的风险是双份回归/双份线上事故面；我建议用里程碑 A/B 冻结边界，否则我这边无法保证质量基线。”</strong></li>
+<li><strong>关键词</strong>：<code>RFC</code> <code>Owner</code> <code>里程碑</code> <code>信息不同步</code> <code>资源升级</code> <code>质量基线</code></li>
+</ul>
+<h3 id="715-2026-04-23">7.15 面试复盘（2026-04-23，公司/轮次待补）</h3>
+<ul>
+<li><strong>整体感受（自评）</strong>：</li>
+<li><strong>岗位画像</strong>：简历偏 <strong>资深 + Flutter 架构</strong>；对方可能 <strong>不是 Flutter 专项</strong>，更关注 <strong>落地、协作、资源边界</strong>——这类问题要刻意用「业务/风险/流程」语言翻译 Flutter 技术。</li>
+<li><strong>优势</strong>：能把「方案—共识—拍板—执行」讲清楚；跨部门冲突能 <strong>升级决策</strong> 而不是个人对抗。</li>
+<li><strong>可加强</strong>：遇到非本领域面试官时，主动 <strong>先问对方 KPI/担心点</strong>，再映射到你的技术方案；少用内部黑话，多给 <strong>对比表/里程碑/指标</strong>。</li>
+<li><strong>本轮问到的话题（回忆版）</strong>：</li>
+<li><strong>领导安排 Flutter 业务，你如何落地？</strong>（你的思路：先方案 → 同步细节 → 领导建议 → 拍板后执行）</li>
+<li><strong>若其他部门抢 Flutter 业务，你怎么应对？</strong>（你的思路：你负责范围可协调；平级冲突需领导平衡资源；中途插入是浪费与信息不同步）</li>
+<li><strong>不会/答得不好的点（先占位，后续补）</strong>：</li>
+<li>（待补：对方追问里卡住的题、你没举出数据的地方）</li>
+<li><strong>补强计划</strong>：</li>
+<li><strong>P0</strong>：准备 1 页「Flutter 落地路线图」模板（里程碑 + 风险 + 指标 + Owner），面试直接照着讲。</li>
+<li><strong>P1</strong>：准备 2 个跨部门案例：<strong>合并</strong> vs <strong>拆域</strong> 各一个，突出你如何推动决策。</li>
+<li><strong>可复用表述（下次直接背）</strong>：</li>
+<li><strong>落地</strong>：<strong>“先对齐目标和约束，再输出可选方案（快/稳/省）与风险，小范围试点验证指标，最后扩面执行。”</strong></li>
+<li><strong>冲突</strong>：<strong>“技术分歧本质是信息不同步；我会用 RFC 把事实与边界写清；涉及资源重复投入，我会带着风险数据请领导做资源裁决。”</strong></li>
+<li><strong>简历材料</strong>：本地已放置 <code>刘帅简历.pdf</code>（仓库 <code>.gitignore</code> 含 <code>*.pdf</code> 时 <strong>不会进 Git</strong>，仅本机留存即可）。</li>
+<li><strong>关键词</strong>：<code>复盘</code> <code>非 Flutter 面试官</code> <code>沟通翻译</code> <code>RFC</code> <code>Owner</code> <code>资源升级</code> <code>里程碑</code></li>
+</ul>
+<hr />
+<h2 id="8-flutter">8. 附录：同份笔试材料中的通用题目（非 Flutter 专向）</h2>
+<p>以下内容来自 <code>iOS笔试题.docx</code>，与 Flutter 无强绑定，但工程面试常一起出现，可作附录速览：</p>
+<ol>
+<li><strong>组件封装</strong>：工具类（文件、权限、网络签名、加解密、JSON、地图蓝牙等）与二次封装价值（可控、简洁、可复用）。</li>
+<li><strong>陌生模块排错</strong>：复现 → 断点/日志 → 从堆栈与类型/空值入手 → 注释二分 → 记录防回归。</li>
+<li><strong>播放器 + 投屏排期</strong>：先播放核心链路，再投屏搜索/连接/控制，再联调权限与跳转，最后测试与增值功能分期。</li>
+<li><strong>IM 多端一致</strong>：消息状态字段（撤回/删除/已读等）+ 服务端通知/透传；本地缓存用 <strong>服务端 maxId vs 本地 maxId</strong> 做增量对齐。</li>
+<li><strong>图片预览组件</strong>：下载缓存、转场动画（起止 rect）、可演进为通用文件预览。</li>
+<li><strong>任务列表实时状态</strong>：相对轮询，更倾向 <strong>长连接按需推送</strong>，降低无效请求压力并可按任务 id 局部刷新。</li>
+</ol>
+<hr />
+<h3 id="81-hashmap">8.1 红黑树与 HashMap（面试：从“为什么”讲到“怎么落地”）</h3>
+<ul>
+<li><strong>红黑树一句话</strong>：一种近似平衡的二叉搜索树，通过“颜色约束 + 旋转”保证高度是 (O(\log n))，从而 <strong>查找/插入/删除最坏 (O(\log n))</strong>（工程上追求“最坏情况也不炸”）。</li>
+<li><strong>红黑树 5 条性质（不用背全称，能解释“为什么平衡”即可）</strong>：</li>
+<li>节点非红即黑；根为黑；叶子 NIL 视作黑</li>
+<li>红节点的子节点必须为黑（不允许连续红）</li>
+<li>任一路径从节点到 NIL 的黑节点数相同（black-height 一致）</li>
+<li>由此推得：最长路径不会超过最短路径 2 倍 → 高度 (O(\log n))</li>
+<li><strong>HashMap 一句话</strong>：用数组做桶（bucket），<code>hash(key)</code> 映射到桶；桶内用链表/树解决冲突；通过扩容维持负载因子，避免退化。</li>
+<li><strong>JDK8 思路（面试常问点）</strong>：</li>
+<li><strong>冲突</strong>：同桶过长会从链表转红黑树（treeify）以避免 (O(n)) 查找。</li>
+<li><strong>为什么阈值常见是 8</strong>：是经验阈值，链表很长时常数成本已经被 (O(n)) 吃掉，改成 (O(\log n)) 更稳；但树化有额外常数开销，因此不会一冲突就树化。</li>
+<li><strong>为什么还要求 table 容量达到一定值才树化</strong>：表太小更应该扩容让元素“散开”，而不是在小表上频繁树化（扩容往往更划算）。</li>
+<li><strong>追问口径：HashMap 为什么容量常是 2 的幂？</strong></li>
+<li>低成本取桶：<code>index = (n - 1) &amp; hash</code>，比 <code>%</code> 快；并且扩容时拆桶迁移有更强规律，减少 rehash 成本。</li>
+<li><strong>关键词</strong>：<code>HashMap</code> <code>bucket</code> <code>collision</code> <code>load factor</code> <code>treeify</code> <code>red-black tree</code> <code>O(log n)</code></li>
+</ul>
+<h3 id="82-flutter">8.2 数据加密与数据安全（移动端/Flutter 面试高频）</h3>
+<ul>
+<li><strong>先把“加密/安全”分层说清（面试最稳）</strong>：</li>
+<li><strong>传输安全</strong>：HTTPS/TLS（防窃听、防篡改、身份认证）</li>
+<li><strong>存储安全</strong>：本地数据加密、密钥管理、越狱/root 对抗</li>
+<li><strong>接口安全</strong>：鉴权、签名、重放攻击、风控</li>
+<li><strong>密码学 4 个基本概念</strong>：</li>
+<li><strong>对称加密（AES）</strong>：快，适合加密大数据；核心是密钥必须安全分发/存储。</li>
+<li><strong>非对称（RSA/ECC）</strong>：慢，用于密钥交换/签名；公钥可公开，私钥保密。</li>
+<li><strong>哈希（SHA-256）</strong>：不可逆，做摘要/完整性校验；不要把“哈希”当“加密”。</li>
+<li><strong>数字签名</strong>：私钥签名 + 公钥验签，保证“来源可信 + 内容未改”。</li>
+<li><strong>HTTPS（TLS）一句话链路</strong>：</li>
+<li>握手阶段用证书验证身份并协商密钥（现代多用 ECDHE）；数据传输阶段用对称密钥（AES-GCM 等）加密。</li>
+<li><strong>移动端落地（你做过什么）</strong>：</li>
+<li><strong>密钥不要硬编码在 App</strong>：代码/包可被逆向；正确做法是 Keychain/Keystore + 运行时派生（结合设备能力/服务端下发策略）。</li>
+<li><strong>敏感数据分级</strong>：token/refresh token、支付信息、隐私字段分别决定是否落盘、落盘多久、是否二次加密。</li>
+<li><strong>证书绑定（pinning）</strong>：抗中间人，但要准备“换证/灰度回滚”方案，否则容易全量断网事故。</li>
+<li><strong>防重放</strong>：时间戳 + nonce + 签名（服务端校验窗口与去重）。</li>
+<li><strong>Flutter 常见实现点（面试可讲）</strong>：</li>
+<li>HTTPS/TLS：<code>dio</code>/<code>http</code> 默认走平台 TLS；更深一层可做证书校验/自定义 <code>HttpClient</code>。</li>
+<li>本地安全存储：优先用插件封装的 Keychain/Keystore（例如 secure storage 类方案），避免自己造轮子。</li>
+<li><strong>关键词</strong>：<code>TLS</code> <code>AES</code> <code>RSA</code> <code>ECC</code> <code>hash</code> <code>signature</code> <code>pinning</code> <code>nonce</code> <code>replay</code></li>
+</ul>
+<h3 id="83">8.3 常用排序方式与复杂度（面试：把“最坏情况”说到位）</h3>
+<ul>
+<li><strong>为什么面试爱问排序</strong>：考的是“复杂度意识 + 最坏情况兜底 + 工程取舍”，不是背公式。</li>
+<li><strong>速记表（常见 6 个）</strong>：</li>
+<li><strong>快速排序</strong>：平均 (O(n\log n))，最坏 (O(n^2))；通常不稳定；工程上常用随机化/三数取中降低最坏概率。</li>
+<li><strong>归并排序</strong>：稳定；时间稳定 (O(n\log n))；需要额外 (O(n)) 空间（数组归并）。</li>
+<li><strong>堆排序</strong>：时间稳定 (O(n\log n))；额外空间小；不稳定；常数略大。</li>
+<li><strong>插入排序</strong>：小规模/近乎有序时很快；最坏 (O(n^2))；稳定；常作为大算法的小数组补充。</li>
+<li><strong>选择排序</strong>：(O(n^2))；不稳定（常见实现）；面试用来对比即可。</li>
+<li><strong>冒泡排序</strong>：(O(n^2))，带 early-exit 可在近乎有序时优化；更多是教学对比。</li>
+<li><strong>工程实践（加分）</strong>：</li>
+<li>C++ <code>std::sort</code> 常用 <strong>IntroSort</strong>（快排为主 + 深度过大切堆排 + 小段插入），兼顾平均性能与最坏兜底。</li>
+<li>对象数组常用 <strong>TimSort</strong>（利用局部有序性，稳定），工程里很常见。</li>
+<li><strong>关键词</strong>：<code>quick sort</code> <code>merge sort</code> <code>heap sort</code> <code>IntroSort</code> <code>TimSort</code> <code>stable</code></li>
+</ul>
+<h3 id="84-dio-flutter">8.4 Dio 常用功能（Flutter 网络面试必备）</h3>
+<ul>
+<li><strong>一句话</strong>：Dio 是 Flutter 常用的 HTTP 客户端封装，主打“工程化能力”：拦截器、取消、超时、上传下载、表单、多实例配置等。</li>
+<li><strong>你要能说清的常用功能（面试高频）</strong>：</li>
+<li><strong>拦截器（Interceptors）</strong>：统一加 token、签名、日志；统一错误转换；可做请求重试（注意避免无限重试）。</li>
+<li><strong>取消请求（CancelToken）</strong>：页面销毁/搜索联想等场景取消旧请求，避免竞态与无效回调。</li>
+<li><strong>超时</strong>：连接/接收/发送超时；弱网策略常配合重试、指数退避。</li>
+<li><strong>上传/下载</strong>：<ul>
+<li><code>FormData</code> + <code>MultipartFile</code> 上传文件</li>
+<li><code>download</code> 支持保存到文件、进度回调（断点续传通常需要配合 <code>Range</code>）</li>
+</ul>
+</li>
+<li><strong>并发与队列</strong>：可以用拦截器/自建队列控制并发数（避免瞬间打爆后端或端侧资源）。</li>
+<li><strong>证书/代理/自定义 HttpClient</strong>：通过 <code>HttpClientAdapter</code>（或各版本对应能力）做证书校验、抓包代理（面试点到即可）。</li>
+<li><strong>统一错误模型</strong>：把 <code>DioException</code> 归一成业务可处理的错误码（超时/断网/4xx/5xx/解析失败），避免 UI 层到处 <code>try/catch</code>。</li>
+<li><strong>常见坑（说一个就加分）</strong>：</li>
+<li>token 刷新并发：多个 401 同时触发刷新要做“单飞”（single flight）合并，否则会多次刷新/覆盖 token。</li>
+<li>大 JSON 解析卡顿：解析/转换可以考虑 isolate/<code>compute</code>（按数据量取舍）。</li>
+<li><strong>关键词</strong>：<code>Dio</code> <code>Interceptor</code> <code>CancelToken</code> <code>FormData</code> <code>Multipart</code> <code>download</code> <code>retry</code> <code>timeout</code></li>
+</ul>
+<h3 id="85-onlog-n">8.5 易混点：为什么有人写 (O(n\log n))，里面的 <code>\\</code> 是什么？</h3>
+<ul>
+<li><strong>结论</strong>：这里的 <code>\\log</code> 不是运算符，属于 <strong>LaTeX 写法</strong>：<code>\log</code> 表示“输出 log 这个符号”。  </li>
+<li><strong>真实含义</strong>：(O(n\log n)) 与 (O(n\log n)) 表示同一件事，都是 <strong>(n \times \log n)</strong>（乘号省略），不是除法也不是 <code>n / log n</code>。</li>
+</ul>
+<h2 id="_2">维护说明</h2>
+<ul>
+<li>若你后续继续补充截图或新题，建议按 <strong>「概念题 / 手写题 / 工程题」</strong> 三类往对应章节追加，Dart 关键词统一补到第 6 节做索引。</li>
+<li><strong>Web3 / 钱包 / 多链签名</strong> 等专题已单独整理：<code>Web3与Flutter面试知识点.md</code>（MkDocs 导航「Web3 × Flutter」）。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

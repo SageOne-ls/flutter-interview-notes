@@ -1,0 +1,1568 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sageone-ls.github.io/flutter-interview-notes/iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/">
+      
+      
+        <link rel="prev" href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>iOS 面试题汇总 - Flutter 面试题笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ios-iosdocx" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Flutter 面试题笔记" class="md-header__button md-logo" aria-label="Flutter 面试题笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Flutter 面试题笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              iOS 面试题汇总
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Flutter%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  面试题汇总
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Web3 × Flutter
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  iOS 面试题汇总
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Flutter 面试题笔记" class="md-nav__button md-logo" aria-label="Flutter 面试题笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Flutter 面试题笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flutter%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web3%E4%B8%8EFlutter%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web3 × Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS 面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS 面试题汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 组件封装：最得意的组件/二次封装有哪些？特点是什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 组件封装：最得意的组件/二次封装有哪些？特点是什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 常见可封装的基础能力（示例）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 突出特点怎么讲（面试口径）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 陌生模块 bug 怎么排查？（步骤写出来）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 陌生模块 bug 怎么排查？（步骤写出来）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 建议步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 面试加分点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 团队评优：你能接受的方式？别人不服气的原因？你不服气怎么处理？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 团队评优：你能接受的方式？别人不服气的原因？你不服气怎么处理？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 我最能接受的方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 别人不服气的常见原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 我不服气时怎么处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 系统设计题：做一个类腾讯视频播放器（含投屏），怎么拆任务与排期？先做什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 系统设计题：做一个类腾讯视频播放器（含投屏），怎么拆任务与排期？先做什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 任务拆解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 排期示例（可按项目调整）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 进入开发阶段先做什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-5050-300600" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 手写题：随机数量的 50×50 方块放入 300×600，互不重叠（任意语言）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 手写题：随机数量的 50×50 方块放入 300×600，互不重叠（任意语言）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-im" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. IM 群消息：撤回/删除 + 本地缓存，如何保证多端一致性？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. IM 群消息：撤回/删除 + 本地缓存，如何保证多端一致性？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 状态字段与事件驱动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 本地缓存与增量对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 组件设计题：图片预览组件（含下载与缓存），怎么做？注意什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 组件设计题：图片预览组件（含下载与缓存），怎么做？注意什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 实现思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 关键注意事项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 上传下载任务列表：前端轮询 vs 服务端长连接推送，选哪个？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 上传下载任务列表：前端轮询 vs 服务端长连接推送，选哪个？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 结论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        维护建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-chain-ios-lldb_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 结合参考项目与工具（chain-ios / lldb_commands）如何“带项目回答”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 结合参考项目与工具（chain-ios / lldb_commands）如何“带项目回答”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-chain-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 用 chain-ios 回答“工程能力/架构与模块化”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-chain-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 chain-ios 项目优势与不足（可背口径）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 chain-ios 项目优势与不足（可背口径）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优势（怎么夸，夸到点上）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足（说风险 + 给改进方向，面试更稳）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-lldb_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 用 lldb_commands 回答“调试提效（性能/稳定性/疑难排查）”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 面试时的“可复用一句话”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 组件封装：最得意的组件/二次封装有哪些？特点是什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 组件封装：最得意的组件/二次封装有哪些？特点是什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 常见可封装的基础能力（示例）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 突出特点怎么讲（面试口径）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 陌生模块 bug 怎么排查？（步骤写出来）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 陌生模块 bug 怎么排查？（步骤写出来）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 建议步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 面试加分点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 团队评优：你能接受的方式？别人不服气的原因？你不服气怎么处理？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 团队评优：你能接受的方式？别人不服气的原因？你不服气怎么处理？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 我最能接受的方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 别人不服气的常见原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 我不服气时怎么处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 系统设计题：做一个类腾讯视频播放器（含投屏），怎么拆任务与排期？先做什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 系统设计题：做一个类腾讯视频播放器（含投屏），怎么拆任务与排期？先做什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 任务拆解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 排期示例（可按项目调整）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 进入开发阶段先做什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-5050-300600" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 手写题：随机数量的 50×50 方块放入 300×600，互不重叠（任意语言）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 手写题：随机数量的 50×50 方块放入 300×600，互不重叠（任意语言）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-im" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. IM 群消息：撤回/删除 + 本地缓存，如何保证多端一致性？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. IM 群消息：撤回/删除 + 本地缓存，如何保证多端一致性？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 状态字段与事件驱动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 本地缓存与增量对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 组件设计题：图片预览组件（含下载与缓存），怎么做？注意什么？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 组件设计题：图片预览组件（含下载与缓存），怎么做？注意什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 实现思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 关键注意事项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 上传下载任务列表：前端轮询 vs 服务端长连接推送，选哪个？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 上传下载任务列表：前端轮询 vs 服务端长连接推送，选哪个？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 结论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        维护建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-chain-ios-lldb_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 结合参考项目与工具（chain-ios / lldb_commands）如何“带项目回答”
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 结合参考项目与工具（chain-ios / lldb_commands）如何“带项目回答”">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-chain-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 用 chain-ios 回答“工程能力/架构与模块化”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-chain-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 chain-ios 项目优势与不足（可背口径）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 chain-ios 项目优势与不足（可背口径）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优势（怎么夸，夸到点上）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足（说风险 + 给改进方向，面试更稳）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-lldb_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 用 lldb_commands 回答“调试提效（性能/稳定性/疑难排查）”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 面试时的“可复用一句话”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ios-iosdocx">iOS 面试题汇总（从 <code>iOS笔试题.docx</code> 整理）</h1>
+<blockquote>
+<p>说明：本页把原始笔试题按主题重排，保留核心要点，并补充一些面试时更“可讲清楚”的表达。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 组件封装：最得意的组件/二次封装有哪些？特点是什么？</h2>
+<h3 id="11">1.1 常见可封装的基础能力（示例）</h3>
+<ul>
+<li><strong>文件与存储</strong>：文件读写、目录管理、文件存在性判断、缓存清理策略。</li>
+<li><strong>权限管理</strong>：相机/相册/定位/通知/蓝牙等权限状态读取、统一弹窗引导、降级方案。</li>
+<li><strong>网络层</strong>：HTTP 封装、统一 header、签名、重试/超时、错误码映射、日志与抓包开关。</li>
+<li><strong>加密与安全</strong>：AES/DES、请求签名、敏感数据脱敏、Keychain/安全存储封装。</li>
+<li><strong>JSON 解析</strong>：统一模型层、容错字段、版本兼容。</li>
+<li><strong>定位/地图/蓝牙</strong>：多 SDK 适配、回调封装、统一状态机。</li>
+<li><strong>动画/绘图</strong>：贝塞尔曲线、复杂动效组件化、可配置参数。</li>
+</ul>
+<h3 id="12">1.2 突出特点怎么讲（面试口径）</h3>
+<ul>
+<li><strong>复用</strong>：跨项目可直接搬运，减少重复造轮子。</li>
+<li><strong>一致性</strong>：统一接口/错误处理/日志埋点，减少“每个人写一套”的分裂。</li>
+<li><strong>更轻更可控</strong>：相对第三方库更贴合业务，API 更简洁，升级风险更可控。</li>
+<li><strong>效率</strong>：节省写代码、调试、测试时间；核心能力沉淀后迭代更快。</li>
+</ul>
+<hr />
+<h2 id="2-bug">2. 陌生模块 bug 怎么排查？（步骤写出来）</h2>
+<h3 id="21">2.1 建议步骤</h3>
+<ol>
+<li><strong>复现问题</strong>：明确触发路径、输入数据、机型/系统版本/网络环境。</li>
+<li><strong>定位范围</strong>：从崩溃堆栈/报错日志入手；若无报错，先缩小到最小可疑模块。</li>
+<li><strong>断点 + 日志</strong>：关键路径逐步走，打印关键参数与状态（类型、空值、边界值）。</li>
+<li><strong>排除法</strong>：必要时注释/开关二分，快速确认问题发生在哪个代码块。</li>
+<li><strong>修复与验证</strong>：补充边界处理，回归原路径与相关路径。</li>
+<li><strong>记录沉淀</strong>：写到复盘/知识库，避免同类问题反复出现。</li>
+</ol>
+<h3 id="22">2.2 面试加分点</h3>
+<ul>
+<li><strong>“先复现再修”</strong>：不凭猜测改代码。</li>
+<li><strong>“先缩小范围再深入”</strong>：减少盲目全局搜索/乱改。</li>
+<li><strong>“修复要带验证”</strong>：回归 + 相关路径 + 线上防护（兜底/监控）。</li>
+</ul>
+<hr />
+<h2 id="3">3. 团队评优：你能接受的方式？别人不服气的原因？你不服气怎么处理？</h2>
+<h3 id="31">3.1 我最能接受的方式</h3>
+<ul>
+<li><strong>客观真实、标准透明</strong>：指标清晰、证据可追溯（数据/产出/影响范围）。</li>
+</ul>
+<h3 id="32">3.2 别人不服气的常见原因</h3>
+<ul>
+<li><strong>分配不公平</strong>（最常见）。</li>
+<li><strong>评优标准不清晰</strong>导致误解。</li>
+<li><strong>人际矛盾/信息不对称</strong>。</li>
+</ul>
+<h3 id="33">3.3 我不服气时怎么处理</h3>
+<ul>
+<li><strong>先沟通对齐</strong>：找 leader/相关同事了解标准与依据，表达自己的视角与证据。</li>
+<li><strong>从公司/团队目标出发</strong>：理解评优最终是服务团队产出；调整方法，下次争取。</li>
+</ul>
+<hr />
+<h2 id="4">4. 系统设计题：做一个类腾讯视频播放器（含投屏），怎么拆任务与排期？先做什么？</h2>
+<h3 id="41">4.1 任务拆解</h3>
+<ul>
+<li><strong>页面设计</strong>：播放器壳、控制层、列表/详情、投屏控制页。</li>
+<li><strong>播放功能</strong>：播放/暂停/快进/倍速/清晰度/全屏、断点续播、错误重试。</li>
+<li><strong>投屏功能</strong>：设备发现、连接、投屏协议、播放控制同步、异常处理（断连/切网）。</li>
+<li><strong>测试与调优</strong>：弱网、后台/前台切换、耗电、崩溃、兼容性。</li>
+</ul>
+<h3 id="42">4.2 排期示例（可按项目调整）</h3>
+<ol>
+<li><strong>第一阶段：本地播放链路</strong>（约 1 周）：播放器内核接入 + 基本交互 + 播放稳定性。</li>
+<li><strong>第二阶段：投屏流程</strong>（约 1 周）：发现/连接 + 投屏控制页面 + 基本状态同步。</li>
+<li><strong>第三阶段：联调与工程收口</strong>（约 2 天）：接口、跳转、权限、账号态等衔接。</li>
+<li><strong>第四阶段：测试与修复</strong>（约 1 周）：兼容性/弱网/异常场景覆盖。</li>
+<li><strong>后续迭代</strong>：评论/分享/下载/弹幕等增值功能分期。</li>
+</ol>
+<h3 id="43">4.3 进入开发阶段先做什么</h3>
+<ul>
+<li><strong>先打通“最短可用链路（MVP）”</strong>：能播 → 能控 → 能稳定；并确定播放器内核与投屏协议/依赖。</li>
+</ul>
+<hr />
+<h2 id="5-5050-300600">5. 手写题：随机数量的 50×50 方块放入 300×600，互不重叠（任意语言）</h2>
+<h3 id="51">5.1 思路</h3>
+<ul>
+<li>随机生成坐标 ((x,y))，构造矩形区域。</li>
+<li>与已存在矩形做 <strong>碰撞检测</strong>（重叠就重试）。</li>
+<li>设定重试上限，避免极端情况下死循环。</li>
+</ul>
+<blockquote>
+<p>备注：你原始答案用 Flutter 给了示例实现（用 <code>Rect.overlaps</code>），思路对 OC/Swift 也同样适用。</p>
+</blockquote>
+<hr />
+<h2 id="6-im">6. IM 群消息：撤回/删除 + 本地缓存，如何保证多端一致性？</h2>
+<h3 id="61">6.1 状态字段与事件驱动</h3>
+<ul>
+<li>每条消息维护独立状态字段：<strong>deleted / recalled / read / delivered</strong> 等。</li>
+<li>服务端以“事件/通知”形式推送状态变更（透传/长连），客户端收到后更新本地缓存与 UI。</li>
+</ul>
+<h3 id="62">6.2 本地缓存与增量对齐</h3>
+<ul>
+<li>聊天记录本地落库。</li>
+<li>用 <strong>服务端 maxId</strong> 与本地最新 maxId 对比，拉取 <strong>增量更新</strong>，保证断网/多端后能对齐。</li>
+</ul>
+<hr />
+<h2 id="7">7. 组件设计题：图片预览组件（含下载与缓存），怎么做？注意什么？</h2>
+<h3 id="71">7.1 实现思路</h3>
+<ul>
+<li>先评估成熟方案（例如 iOS 常见的图片浏览库、或从历史项目复用），再按业务做 UI/交互微调。</li>
+<li>下载与缓存用成熟框架（iOS 常用 SDWebImage 一类），并补齐缓存策略（内存/磁盘、过期、清理）。</li>
+</ul>
+<h3 id="72">7.2 关键注意事项</h3>
+<ul>
+<li><strong>通用性</strong>：后续可能扩展到文件预览（PDF/视频/Office）。</li>
+<li><strong>转场动画</strong>：微信式“从缩略图放大”的过渡需要计算起始/结束 Rect，交互细节很考验体验。</li>
+<li><strong>异常与性能</strong>：大图、长图、弱网占位、OOM 风险、预加载与手势冲突。</li>
+</ul>
+<hr />
+<h2 id="8-vs">8. 上传下载任务列表：前端轮询 vs 服务端长连接推送，选哪个？</h2>
+<h3 id="81">8.1 结论</h3>
+<ul>
+<li>更倾向 <strong>长连接推送更新</strong>。</li>
+</ul>
+<h3 id="82">8.2 原因</h3>
+<ul>
+<li>任务状态/进度/速率是<strong>高频变化</strong>，轮询会带来：</li>
+<li>请求频繁、服务器压力大</li>
+<li>客户端耗电/网络开销大</li>
+<li>长连推送：</li>
+<li>客户端监听即可</li>
+<li>服务端按 taskId 精准推送变更，客户端可按 id 局部刷新</li>
+</ul>
+<hr />
+<h2 id="_1">维护建议</h2>
+<ul>
+<li>后续新增 iOS 题目时，建议按 <strong>工程能力 / 系统设计 / 组件设计 / 性能与稳定性 / 协作沟通</strong> 分类追加，方便面试前快速扫一遍。</li>
+</ul>
+<hr />
+<h2 id="9-chain-ios-lldb_commands">9. 结合参考项目与工具（<code>chain-ios</code> / <code>lldb_commands</code>）如何“带项目回答”</h2>
+<p>你本地有 2 份非常适合“结合项目落地细节来回答”的素材：</p>
+<ul>
+<li><code>/Users/liushuai/Desktop/Flutter面试题/chain-ios</code>：一个完整 iOS 工程（含 Pod、workspace 等），适合拿来讲<strong>工程化与模块边界</strong>。</li>
+<li><code>/Users/liushuai/Desktop/Flutter面试题/lldb_commands</code>：LLDB 脚本与命令集合，更适合定位为<strong>调试能力拓展/提效工具箱</strong>（辅助性能、稳定性与疑难排查）。</li>
+</ul>
+<h3 id="91-chain-ios">9.1 用 <code>chain-ios</code> 回答“工程能力/架构与模块化”</h3>
+<p>可以重点围绕这些面试点来讲：</p>
+<ul>
+<li><strong>模块化/分层</strong>：业务模块、基础能力模块（network/storage/logging）如何拆；模块边界怎么定；如何避免循环依赖。</li>
+<li><strong>依赖管理（CocoaPods）</strong>：<code>Podfile</code>、<code>Podfile.lock</code> 的使用习惯；如何处理三方库升级、版本冲突、二进制化/私有 Pod。</li>
+<li><strong>环境与构建产物</strong>：<code>Debug/Release</code> 配置、构建脚本、打包与签名（能讲“可复制的流水线”更加分）。</li>
+<li><strong>稳定性兜底</strong>：崩溃收集、日志分级、关键链路埋点、灰度与回滚思路。</li>
+</ul>
+<h3 id="92-chain-ios">9.2 <code>chain-ios</code> 项目优势与不足（可背口径）</h3>
+<h4 id="_2">优势（怎么夸，夸到点上）</h4>
+<ul>
+<li><strong>分层意识清晰</strong>：目录里能看到 <code>Controllers / Views / ViewModels / Models</code> 的组织方式（例如 SpotDetail 下的 Controller/View/ViewModel），便于多人协作与定位问题。</li>
+<li><strong>基础能力覆盖完整</strong>：<code>AppDelegate</code> 启动链路里有网络统一配置、Toast/HUD、主题、键盘管理、推送、播放器/WebView 池等（能说明“工程体系”比较齐）。</li>
+<li><strong>网络与全局 Header 管理</strong>：有统一的 <code>NetWorkTool.header(...)</code> 与网络监测/配置更新逻辑，面试时可讲“请求签名/鉴权 header/缓存策略怎么落地”。</li>
+<li><strong>多语言与主题</strong>：存在 <code>Localizable.strings</code> 多语言资源与 <code>SwiftTheme</code>，可讲国际化与暗黑模式工程化。</li>
+<li><strong>依赖成熟</strong>：Podfile 里覆盖网络、布局、图片缓存、骨架屏、富文本、图表、数据库（WCDB）等常见能力，能体现落地经验。</li>
+</ul>
+<h4 id="_3">不足（说风险 + 给改进方向，面试更稳）</h4>
+<ul>
+<li><strong>启动与全局初始化偏重</strong>：<code>AppDelegate</code> 承担了大量初始化与业务订阅（通知监听、登录态切换等），容易变成“巨石入口”，建议拆成 <code>AppBootstrapper/Service</code> 按域初始化并做懒加载。</li>
+<li><strong>依赖管理偏重且耦合 CocoaPods</strong>：Pod 数量多、<code>use_frameworks!</code> + <code>inhibit_all_warnings!</code> 会掩盖告警；可补充“逐步收敛依赖、关键库用 SPM/二进制化、告警分级治理”的策略。</li>
+<li><strong>全局单例/通知驱动较多</strong>：看到 <code>SystemManager/UserManager/...</code> 一类全局状态与 Notification/Rx 订阅，规模变大后会加重耦合；可引入更明确的依赖注入与模块边界。</li>
+<li><strong>测试与质量体系不明显</strong>：可补充“核心业务单测、网络层契约测试、CI 检查（lint/format）”作为改进计划。</li>
+</ul>
+<h3 id="93-lldb_commands">9.3 用 <code>lldb_commands</code> 回答“调试提效（性能/稳定性/疑难排查）”</h3>
+<p>面试时不要背命令本身，讲“方法论 + 工具组合”更稳：</p>
+<ul>
+<li><strong>卡顿/掉帧</strong>：</li>
+<li>先定性：是主线程阻塞、还是渲染/布局开销、还是 IO/锁竞争。</li>
+<li>工具链：<code>Instruments(Time Profiler/Core Animation)</code> + 关键函数断点 + LLDB 辅助定位热点。</li>
+<li><strong>内存问题（OOM/泄漏）</strong>：</li>
+<li>工具链：<code>Instruments(Leaks/Allocations)</code>；必要时用 LLDB 辅助检查对象图与引用链。</li>
+<li><strong>线上问题快速定位</strong>：</li>
+<li>先复现路径与最小用例；再用符号化崩溃栈、日志关键字、断点与条件断点缩小范围。</li>
+<li>LLDB 脚本的价值：把常用排查动作“脚本化/标准化”（比如常用查询/格式化输出/快速定位对象信息），提升定位效率并可团队复用。</li>
+</ul>
+<h3 id="94">9.4 面试时的“可复用一句话”</h3>
+<blockquote>
+<p>我准备面试题不会只背概念，而是会结合工程来讲：在 <code>chain-ios</code> 这种真实项目里我怎么做模块边界、依赖管理与交付；遇到卡顿/内存/崩溃会用 Instruments 定位，再用 LLDB（脚本化命令）把定位效率提高并沉淀成团队可复用的工具链。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
