@@ -17,5 +17,6 @@ plugins:
 nav:
   - 首页: index.md
   - 面试题汇总: Flutter面试题汇总.md
+  - Web3 × Flutter: Web3与Flutter面试知识点.md
   - iOS 面试题汇总: iOS面试题汇总.md
 
